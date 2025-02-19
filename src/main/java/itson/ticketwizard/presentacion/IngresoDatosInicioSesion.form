@@ -6,7 +6,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -32,10 +32,10 @@
                       <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                      <Component id="btnIngresar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="389" max="-2" attributes="0"/>
+                      <Component id="etqSinCuenta" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnRegistrarse" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="391" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -47,12 +47,12 @@
               <Component id="panelEncabezado" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Component id="panelIngresoDatos" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="80" max="32767" attributes="0"/>
+              <EmptySpace pref="79" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnIngresar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnVolver" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRegistrarse" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="etqSinCuenta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -132,23 +132,26 @@
               <Group type="102" attributes="0">
                   <EmptySpace pref="92" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="etqCorreoElectronico" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="etqContrasenia" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="etqCorreoElectronico" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="etqContrasenia" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="campoContrasenia" min="-2" pref="193" max="-2" attributes="0"/>
+                              <Component id="campoCorreoElectronico" min="-2" pref="193" max="-2" attributes="0"/>
+                              <Component id="tituloIngresoDatos" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnIngresar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="campoContrasenia" min="-2" pref="193" max="-2" attributes="0"/>
-                      <Component id="campoCorreoElectronico" min="-2" pref="193" max="-2" attributes="0"/>
-                      <Component id="tituloIngresoDatos" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="etqSinCuenta" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="btnRegistrarse" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -167,12 +170,12 @@
                       <Component id="campoContrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="etqContrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="88" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnRegistrarse" min="-2" max="-2" attributes="0"/>
-                      <Component id="etqSinCuenta" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="95" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnIngresar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnVolver" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -187,9 +190,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campoCorreoElectronico">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoCorreoElectronicoActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
@@ -206,33 +206,33 @@
         </Component>
         <Component class="javax.swing.JPasswordField" name="campoContrasenia">
         </Component>
-        <Component class="javax.swing.JButton" name="btnRegistrarse">
+        <Component class="javax.swing.JButton" name="btnIngresar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Registrarse"/>
+            <Property name="text" type="java.lang.String" value="Ingresar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnVolver">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Volver"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarseActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="etqSinCuenta">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="&#xbf;No tienes una cuenta?"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnIngresar">
+    <Component class="javax.swing.JButton" name="btnRegistrarse">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ingresar"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnVolver">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Volver"/>
+        <Property name="text" type="java.lang.String" value="Reg&#xed;strate"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarseActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="etqSinCuenta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xbf;No tienes una cuenta?"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

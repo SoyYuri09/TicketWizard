@@ -21,7 +21,7 @@ public class UsuariosDAO {
     
     public boolean validarExistencia(NuevoUsuarioDTO usuarioDTO){
         String codigoSQL = """
-                           SELECT COUNT(correoElectronico) AS numeroUsuarios
+                           SELECT correoElectronico AS numeroUsuarios
                            FROM Usuarios
                            WHERE correoElectronico = ?;
                            """;

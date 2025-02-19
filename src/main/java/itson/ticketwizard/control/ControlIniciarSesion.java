@@ -6,6 +6,7 @@ import itson.ticketwizard.persistencia.UsuariosDAO;
 import itson.ticketwizard.presentacion.IngresoDatosInicioSesion;
 import itson.ticketwizard.presentacion.InicioSesionUsuario;
 import itson.ticketwizard.presentacion.IngresoDatosRegistro;
+import javax.swing.JFrame;
 
 
 public class ControlIniciarSesion {
@@ -24,15 +25,15 @@ public class ControlIniciarSesion {
         this.pantallaInicioSesion.setVisible(true);
     }
     
-    public void mostrarFormularioRegistro(){
+    public void mostrarFormularioRegistro(JFrame frameAnterior){
         formIngresoDatosRegistro = new IngresoDatosRegistro(this);
-        pantallaInicioSesion.dispose();
+        frameAnterior.dispose();
         formIngresoDatosRegistro.setVisible(true);
     }
     
-    public void mostrarFormularioIngreso(){
+    public void mostrarFormularioIngreso(JFrame frameAnterior){
         formIngresoDatosInicioSesion = new IngresoDatosInicioSesion(this);
-        pantallaInicioSesion.dispose();
+        frameAnterior.dispose();
         formIngresoDatosInicioSesion.setVisible(true);
     }
     
@@ -40,11 +41,13 @@ public class ControlIniciarSesion {
         
         if(usuariosDAO.validarExistencia(nuevoUsuarioDTO)){
             formIngresoDatosRegistro.mostrarMensajeUsuarioExistente();
+        } else{
+            
         }
     }
     
-    public void volverPantallaIniciarSesion(){
-        this.formIngresoDatosRegistro.dispose();
+    public void volverPantallaIniciarSesion(JFrame frameAnterior){
+        frameAnterior.dispose();
         this.iniciarCasoUso();
     }
 

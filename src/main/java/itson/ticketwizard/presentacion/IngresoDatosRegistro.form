@@ -275,9 +275,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textFieldNombre">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldNombreActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
@@ -288,9 +285,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textFieldApellidoPaterno">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldApellidoPaternoActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
@@ -301,9 +295,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textFieldApellidoMaterno">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldApellidoMaternoActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
@@ -329,9 +320,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textFieldEstado">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldEstadoActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
@@ -342,9 +330,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textFieldCiudad">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldCiudadActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
@@ -355,9 +340,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textFieldColonia">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldColoniaActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
@@ -368,9 +350,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textFieldCalle">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldCalleActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
@@ -381,17 +360,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textFieldNumero">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldNumeroActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="textFieldCorreoElectronico">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldCorreoElectronicoActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>

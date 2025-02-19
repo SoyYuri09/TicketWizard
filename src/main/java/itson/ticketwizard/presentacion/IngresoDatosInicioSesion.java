@@ -39,10 +39,10 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
         etqCorreoElectronico = new javax.swing.JLabel();
         etqContrasenia = new javax.swing.JLabel();
         campoContrasenia = new javax.swing.JPasswordField();
-        btnRegistrarse = new javax.swing.JButton();
-        etqSinCuenta = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        btnRegistrarse = new javax.swing.JButton();
+        etqSinCuenta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,24 +84,18 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
         tituloIngresoDatos.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         tituloIngresoDatos.setText("Ingrese sus datos");
 
-        campoCorreoElectronico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoCorreoElectronicoActionPerformed(evt);
-            }
-        });
-
         etqCorreoElectronico.setText("Correo electrónico:");
 
         etqContrasenia.setText("Contraseña:");
 
-        btnRegistrarse.setText("Registrarse");
-        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+        btnIngresar.setText("Ingresar");
+
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarseActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
-
-        etqSinCuenta.setText("¿No tienes una cuenta?");
 
         javax.swing.GroupLayout panelIngresoDatosLayout = new javax.swing.GroupLayout(panelIngresoDatos);
         panelIngresoDatos.setLayout(panelIngresoDatosLayout);
@@ -110,20 +104,21 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
             .addGroup(panelIngresoDatosLayout.createSequentialGroup()
                 .addContainerGap(92, Short.MAX_VALUE)
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etqCorreoElectronico, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(etqContrasenia, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(campoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tituloIngresoDatos))
-                .addGap(122, 122, 122))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIngresoDatosLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(etqSinCuenta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRegistrarse)
-                .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIngresoDatosLayout.createSequentialGroup()
+                        .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etqCorreoElectronico, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(etqContrasenia, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(campoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tituloIngresoDatos))
+                        .addGap(122, 122, 122))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIngresoDatosLayout.createSequentialGroup()
+                        .addComponent(btnVolver)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnIngresar)
+                        .addGap(156, 156, 156))))
         );
         panelIngresoDatosLayout.setVerticalGroup(
             panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,21 +133,21 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(etqContrasenia))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnRegistrarse)
-                    .addComponent(etqSinCuenta))
-                .addGap(18, 18, 18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIngresar)
+                    .addComponent(btnVolver))
+                .addGap(14, 14, 14))
         );
 
-        btnIngresar.setText("Ingresar");
-
-        btnVolver.setText("Volver");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarse.setText("Regístrate");
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
+                btnRegistrarseActionPerformed(evt);
             }
         });
+
+        etqSinCuenta.setText("¿No tienes una cuenta?");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,10 +161,10 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
                         .addComponent(panelIngresoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(261, 261, 261))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnVolver)
-                        .addGap(69, 69, 69)
-                        .addComponent(btnIngresar)
-                        .addGap(389, 389, 389))))
+                        .addComponent(etqSinCuenta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRegistrarse)
+                        .addGap(391, 391, 391))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,26 +172,23 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
                 .addComponent(panelEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(panelIngresoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIngresar)
-                    .addComponent(btnVolver))
-                .addGap(59, 59, 59))
+                    .addComponent(btnRegistrarse)
+                    .addComponent(etqSinCuenta))
+                .addGap(57, 57, 57))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoCorreoElectronicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCorreoElectronicoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoCorreoElectronicoActionPerformed
-
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
-        // TODO add your handling code here:
+        this.control.mostrarFormularioRegistro(this);
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        this.control.volverPantallaIniciarSesion();
+        this.control.volverPantallaIniciarSesion(this);
     }//GEN-LAST:event_btnVolverActionPerformed
 
 
@@ -210,14 +202,8 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
     private javax.swing.JLabel etqCorreoElectronico;
     private javax.swing.JLabel etqSinCuenta;
     private javax.swing.JLabel labelLogo;
-    private javax.swing.JLabel labelLogo1;
-    private javax.swing.JLabel labelLogo2;
     private javax.swing.JLabel labelTitulo;
-    private javax.swing.JLabel labelTitulo1;
-    private javax.swing.JLabel labelTitulo2;
     private javax.swing.JPanel panelEncabezado;
-    private javax.swing.JPanel panelEncabezado1;
-    private javax.swing.JPanel panelEncabezado2;
     private javax.swing.JPanel panelIngresoDatos;
     private javax.swing.JLabel tituloIngresoDatos;
     // End of variables declaration//GEN-END:variables

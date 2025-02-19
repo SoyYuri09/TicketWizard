@@ -105,27 +105,9 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
 
         labelNombre.setText("Nombre(s):");
 
-        textFieldNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldNombreActionPerformed(evt);
-            }
-        });
-
         labelApellidoPaterno.setText("Apellido paterno:");
 
-        textFieldApellidoPaterno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldApellidoPaternoActionPerformed(evt);
-            }
-        });
-
         labelApellidoMaterno.setText("Apellido materno:");
-
-        textFieldApellidoMaterno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldApellidoMaternoActionPerformed(evt);
-            }
-        });
 
         labelFechaNacimiento.setText("Fecha de nacimiento:");
 
@@ -134,49 +116,13 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
 
         labelCalle.setText("Calle:");
 
-        textFieldEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldEstadoActionPerformed(evt);
-            }
-        });
-
         labelCiudad.setText("Ciudad:");
-
-        textFieldCiudad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldCiudadActionPerformed(evt);
-            }
-        });
 
         labelEstado.setText("Estado:");
 
-        textFieldColonia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldColoniaActionPerformed(evt);
-            }
-        });
-
         labelColonia1.setText("Colonia:");
 
-        textFieldCalle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldCalleActionPerformed(evt);
-            }
-        });
-
         labelNúmero.setText("Número:");
-
-        textFieldNumero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldNumeroActionPerformed(evt);
-            }
-        });
-
-        textFieldCorreoElectronico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldCorreoElectronicoActionPerformed(evt);
-            }
-        });
 
         labelCorreoElectronico.setText("Correo electrónico:");
 
@@ -338,42 +284,6 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldNombreActionPerformed
-
-    private void textFieldApellidoPaternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldApellidoPaternoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldApellidoPaternoActionPerformed
-
-    private void textFieldApellidoMaternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldApellidoMaternoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldApellidoMaternoActionPerformed
-
-    private void textFieldCorreoElectronicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCorreoElectronicoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldCorreoElectronicoActionPerformed
-
-    private void textFieldEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldEstadoActionPerformed
-
-    private void textFieldCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCiudadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldCiudadActionPerformed
-
-    private void textFieldColoniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldColoniaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldColoniaActionPerformed
-
-    private void textFieldCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCalleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldCalleActionPerformed
-
-    private void textFieldNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldNumeroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldNumeroActionPerformed
-
     private void jButtonGuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarDatosActionPerformed
         
         String nombres = this.textFieldNombre.getText();
@@ -401,7 +311,7 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGuardarDatosActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
-        this.control.volverPantallaIniciarSesion();
+        this.control.volverPantallaIniciarSesion(this);
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     public void mostrarMensajeUsuarioExistente(){

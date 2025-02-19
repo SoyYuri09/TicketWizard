@@ -141,11 +141,11 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
-        
+        this.control.mostrarFormularioIngreso(this);
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
     private void jButtonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarseActionPerformed
-        control.mostrarFormularioRegistro();
+        this.control.mostrarFormularioRegistro(this);
     }//GEN-LAST:event_jButtonRegistrarseActionPerformed
 
 
