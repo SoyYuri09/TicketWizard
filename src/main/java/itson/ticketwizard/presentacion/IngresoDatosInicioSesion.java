@@ -5,6 +5,8 @@
 package itson.ticketwizard.presentacion;
 
 import itson.ticketwizard.control.ControlIniciarSesion;
+import itson.ticketwizard.dtos.IngresoUsuarioDTO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -89,6 +91,11 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
         etqContrasenia.setText("Contraseña:");
 
         btnIngresar.setText("Ingresar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -191,6 +198,23 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
         this.control.volverPantallaIniciarSesion(this);
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        
+        String correoElectronico = (String) this.campoCorreoElectronico.getText();
+        char[] contrasenia = this.campoContrasenia.getPassword();
+        
+        String contraseniaString = "";
+        for(char c: contrasenia){
+            contraseniaString += c;
+        }
+        
+        IngresoUsuarioDTO ingresoUsuarioDTO = new IngresoUsuarioDTO(correoElectronico, contraseniaString);
+        this.control.inciarSesion(ingresoUsuarioDTO);
+    }//GEN-LAST:event_btnIngresarActionPerformed
+
+    public void mostrarMensajeUsuarioContraseniaInvalido(String texto, String titulo, int tipoMensaje){
+        JOptionPane.showMessageDialog(this, texto, titulo, tipoMensaje);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;

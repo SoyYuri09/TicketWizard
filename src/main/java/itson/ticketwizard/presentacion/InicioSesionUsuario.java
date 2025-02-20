@@ -2,7 +2,7 @@
 package itson.ticketwizard.presentacion;
 
 import itson.ticketwizard.control.ControlIniciarSesion;
-import itson.ticketwizard.dtos.NuevoUsuarioDTO;
+import itson.ticketwizard.dtos.SolicitudRegistroUsuarioDTO;
 
 
 public class InicioSesionUsuario extends javax.swing.JFrame {

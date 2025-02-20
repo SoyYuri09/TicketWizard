@@ -1,12 +1,19 @@
 
 package itson.ticketwizard.control;
 
+import itson.ticketwizard.dtos.IngresoUsuarioDTO;
+import itson.ticketwizard.dtos.NuevaDireccionUsuarioDTO;
 import itson.ticketwizard.dtos.NuevoUsuarioDTO;
+import itson.ticketwizard.dtos.SolicitudRegistroUsuarioDTO;
+import itson.ticketwizard.entidades.DireccionUsuario;
+import itson.ticketwizard.entidades.Usuario;
+import itson.ticketwizard.persistencia.DireccionesUsuariosDAO;
 import itson.ticketwizard.persistencia.UsuariosDAO;
 import itson.ticketwizard.presentacion.IngresoDatosInicioSesion;
 import itson.ticketwizard.presentacion.InicioSesionUsuario;
 import itson.ticketwizard.presentacion.IngresoDatosRegistro;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 public class ControlIniciarSesion {
@@ -15,13 +22,15 @@ public class ControlIniciarSesion {
     private IngresoDatosInicioSesion formIngresoDatosInicioSesion;
     
     private UsuariosDAO usuariosDAO;
+    private DireccionesUsuariosDAO direccionesUsuariosDAO;
 
-    public ControlIniciarSesion(UsuariosDAO usuariosDAO) {
+    public ControlIniciarSesion(UsuariosDAO usuariosDAO, DireccionesUsuariosDAO direccionesUsuariosDAO) {
         this.usuariosDAO = usuariosDAO;
-        pantallaInicioSesion = new InicioSesionUsuario(this);
+        this.direccionesUsuariosDAO = direccionesUsuariosDAO;
     }
     
     public void iniciarCasoUso(){
+        pantallaInicioSesion = new InicioSesionUsuario(this);
         this.pantallaInicioSesion.setVisible(true);
     }
     
@@ -37,12 +46,36 @@ public class ControlIniciarSesion {
         formIngresoDatosInicioSesion.setVisible(true);
     }
     
-    public void validarUsuario(NuevoUsuarioDTO nuevoUsuarioDTO){
+    public void inciarSesion(IngresoUsuarioDTO ingresoUsuarioDTO){
+        if(usuariosDAO.validarUsuarioContrasenia(ingresoUsuarioDTO) == true)
+            System.out.println("Mostrar pantalla");
+        else{
+            formIngresoDatosInicioSesion.mostrarMensajeUsuarioContraseniaInvalido("Usuario y/o contraseña incorrectos", "Datos erróneos", 1);
+        }
+    }
+    
+    public void registrarUsuario(SolicitudRegistroUsuarioDTO solicitudRegistroUsuario){
         
-        if(usuariosDAO.validarExistencia(nuevoUsuarioDTO)){
-            formIngresoDatosRegistro.mostrarMensajeUsuarioExistente();
+        if(usuariosDAO.validarExistencia(solicitudRegistroUsuario.getCorreoElectronico())){
+            formIngresoDatosRegistro.mostrarMensajeUsuarioExistente("El usuario " + solicitudRegistroUsuario.getCorreoElectronico() + " ya está en uso",
+                    "Correo electrónico inválido", JOptionPane.INFORMATION_MESSAGE);
         } else{
+            NuevaDireccionUsuarioDTO nuevaDireccionUsuarioDTO = 
+                    new NuevaDireccionUsuarioDTO(solicitudRegistroUsuario.getEstado(), solicitudRegistroUsuario.getCiudad(),
+                    solicitudRegistroUsuario.getColonia(), solicitudRegistroUsuario.getCalle(), solicitudRegistroUsuario.getNumero());
             
+            DireccionUsuario direccionUsuario = direccionesUsuariosDAO.registrar(nuevaDireccionUsuarioDTO);
+            
+            
+            NuevoUsuarioDTO nuevoUsuarioDTO = new NuevoUsuarioDTO(solicitudRegistroUsuario.getNombres(), 
+                    solicitudRegistroUsuario.getApellidoPaterno(),solicitudRegistroUsuario.getApellidoMaterno(), 
+                    solicitudRegistroUsuario.getCorreoElectronico(), solicitudRegistroUsuario.getFechaNacimiento(), 
+                    solicitudRegistroUsuario.getContrasenia(), direccionUsuario.getCodigo());
+            
+            Usuario usuario = usuariosDAO.registrar(nuevoUsuarioDTO);
+            
+            formIngresoDatosRegistro.mostrarMensajeUsuarioExistente("Registro exitoso",
+                    "Correo electrónico inválido", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     
@@ -50,7 +83,7 @@ public class ControlIniciarSesion {
         frameAnterior.dispose();
         this.iniciarCasoUso();
     }
-
+    
     
     
 }

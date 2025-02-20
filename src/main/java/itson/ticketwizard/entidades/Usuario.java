@@ -2,29 +2,41 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package itson.ticketwizard.dtos;
+package itson.ticketwizard.entidades;
 
 /**
  *
  * @author romom
  */
-public class NuevoUsuarioDTO {
+public class Usuario {
+    private Integer codigo;
     private String nombres;
     private String apellidoPaterno;
     private String apellidoMaterno;
     private String correoElectronico;
     private String fechaNacimiento;
     private String contrasenia;
+    private Integer saldo;
     private Integer codigoDireccion;
 
-    public NuevoUsuarioDTO(String nombres, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String fechaNacimiento, String contrasenia, Integer codigoDireccion) {
+    public Usuario(Integer codigo, String nombres, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String fechaNacimiento, String contrasenia, Integer saldo, Integer codigoDireccion) {
+        this.codigo = codigo;
         this.nombres = nombres;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.correoElectronico = correoElectronico;
         this.fechaNacimiento = fechaNacimiento;
         this.contrasenia = contrasenia;
+        this.saldo = saldo;
         this.codigoDireccion = codigoDireccion;
+    }
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombres() {
@@ -75,6 +87,14 @@ public class NuevoUsuarioDTO {
         this.contrasenia = contrasenia;
     }
 
+    public Integer getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(Integer saldo) {
+        this.saldo = saldo;
+    }
+
     public Integer getCodigoDireccion() {
         return codigoDireccion;
     }
@@ -83,5 +103,10 @@ public class NuevoUsuarioDTO {
         this.codigoDireccion = codigoDireccion;
     }
 
+    
+    
+    
+    
+    
     
 }

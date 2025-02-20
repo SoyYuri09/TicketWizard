@@ -1,11 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package itson.ticketwizard.presentacion;
 
 import itson.ticketwizard.control.ControlIniciarSesion;
-import itson.ticketwizard.dtos.NuevoUsuarioDTO;
+import itson.ticketwizard.dtos.SolicitudRegistroUsuarioDTO;
 import javax.swing.JOptionPane;
 
 /**
@@ -304,19 +301,20 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
         String calle = this.textFieldCalle.getText();
         Integer numero = Integer.valueOf(this.textFieldNumero.getText());
         
-        NuevoUsuarioDTO nuevoUsuarioDTO = new NuevoUsuarioDTO(nombres, apellidoPaterno, apellidoMaterno, 
+        SolicitudRegistroUsuarioDTO nuevoUsuarioDTO = new SolicitudRegistroUsuarioDTO(nombres, apellidoPaterno, apellidoMaterno, 
                 correoElectronico, fechaNacimiento, contraseniaString, estado, ciudad, colonia, calle, numero);
         
-        this.control.validarUsuario(nuevoUsuarioDTO);
+        this.control.registrarUsuario(nuevoUsuarioDTO);
     }//GEN-LAST:event_jButtonGuardarDatosActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
         this.control.volverPantallaIniciarSesion(this);
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
-    public void mostrarMensajeUsuarioExistente(){
-        JOptionPane.showMessageDialog(this, "El usuario" + this.textFieldCorreoElectronico + "ya está en uso", "Usuario inválido", JOptionPane.INFORMATION_MESSAGE);
+    public void mostrarMensajeUsuarioExistente(String texto, String titulo, int tipoMensaje){
+        JOptionPane.showMessageDialog(this, texto, titulo, tipoMensaje);
     }
+   
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
