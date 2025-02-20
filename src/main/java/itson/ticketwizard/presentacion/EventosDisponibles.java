@@ -1,24 +1,52 @@
 package itson.ticketwizard.presentacion;
 import itson.ticketwizard.control.ControlCompra;
+import itson.ticketwizard.dtos.DatosEventoDTO;
 import itson.ticketwizard.entidades.Evento;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
-public class OpcionesDeUsuario extends javax.swing.JFrame {
+public class EventosDisponibles extends javax.swing.JFrame {
 
     private final ControlCompra control;
+    private Integer[] codigosEventos;
     /**
      * Creates new form InicioSesionUsuario
      */
-    public OpcionesDeUsuario(ControlCompra control) {
+    public EventosDisponibles(ControlCompra control) {
         initComponents();
         this.control = control;
         this.llenarTablaEventos();
     }
 
     private void llenarTablaEventos(){
+        
         List<Evento> listaEventos = this.control.consultarListaEventos();
-        DefaultTableModel modelo = (DefaultTableModel)this.tablaListaEventos.getModel();
+       
+        
+        
+        int altura = 5;
+        
+        JButton[] arregloBotones = new JButton[listaEventos.size()];
+        
+        for(int i = 0; i < arregloBotones.length; i++){
+            arregloBotones[i] = new JButton();
+        }
+        
+        // Añadir botones en un ciclo for
+        
+        codigosEventos = new Integer[listaEventos.size()];
+        
         for(Evento evento: listaEventos){
             Object[] filaTabla = {
                 evento.getCodigo(),
@@ -29,7 +57,67 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
                 evento.getEstado(),
                 evento.getCiudad()
             };
-            modelo.addRow(filaTabla);
+            
+            
+            JPanel panel = new JPanel();
+            panel.setBounds(5,altura,this.getWidth() - 10,150);
+            panel.setBackground(Color.black);
+            jPanel1.add(panel);
+            altura += 160;
+            jPanel1.revalidate();
+            jPanel1.repaint();
+            
+            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+            
+            JLabel nombre = new JLabel((String)filaTabla[1]);
+            panel.add(nombre);
+            nombre.setForeground(Color.white);
+            
+            JLabel recinto = new JLabel((String)filaTabla[2]);
+            recinto.setForeground(Color.white);
+            panel.add(recinto);
+            
+            JLabel descripcion = new JLabel((String)filaTabla[3]);
+            panel.add(descripcion);
+            
+            String descripcionS = (String)filaTabla[3];
+            
+            JTextArea j= new JTextArea(descripcionS);
+            
+            panel.add(j);
+            j.setBackground(Color.black);
+            j.setForeground(Color.white);
+            j.setBounds(0, 40, this.getWidth(), this.getHeight());
+            j.setEnabled(false);
+            
+            JLabel fecha = new JLabel((String)filaTabla[4]);
+            fecha.setForeground(Color.white);
+            panel.add(fecha);
+            
+            JLabel estado = new JLabel((String)filaTabla[5]);
+            estado.setForeground(Color.white);
+            panel.add(estado);
+            
+            JLabel ciudad = new JLabel((String)filaTabla[6]);
+            ciudad.setForeground(Color.white);
+            panel.add(ciudad);
+           
+            panel.add(arregloBotones[listaEventos.indexOf(evento)]);        
+            Integer codigo = (Integer)filaTabla[0];
+            codigosEventos[listaEventos.indexOf(evento)] = codigo;
+        }
+        
+        for (int i = 0; i < arregloBotones.length; i++) {
+            int j = i;
+            JButton boton = arregloBotones[i];
+            String nombre = arregloBotones[i].getName();
+            boton.setActionCommand(nombre); // Establecer un comando de acción único
+            boton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    EventosDisponibles.this.control.mostrarListaBoletos(EventosDisponibles.this, codigosEventos[j]);
+                }
+            });
         }
     }
     
@@ -42,7 +130,8 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
+        scrollEventos = new javax.swing.JScrollPane();
+        tablaListaEventos = new javax.swing.JTable();
         panelEncabezado = new javax.swing.JPanel();
         etqLogo = new javax.swing.JLabel();
         campoFechaInicial = new com.github.lgooddatepicker.components.DatePicker();
@@ -53,9 +142,32 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
         campoBuscarEvento = new javax.swing.JTextField();
         etqBuscarEvento = new javax.swing.JLabel();
         etqNombreUsuario = new javax.swing.JLabel();
-        jScrollBar1 = new javax.swing.JScrollBar();
-        scrollEventos = new javax.swing.JScrollPane();
-        tablaListaEventos = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+
+        scrollEventos.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollEventos.setEnabled(false);
+
+        tablaListaEventos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Fecha", "Descripción", "Recinto", "Ciudad", "Estado", "Selección de evento"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tablaListaEventos.setColumnSelectionAllowed(true);
+        tablaListaEventos.setEnabled(false);
+        scrollEventos.setViewportView(tablaListaEventos);
+        tablaListaEventos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TicketWizard");
@@ -143,22 +255,22 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
                     .addContainerGap(101, Short.MAX_VALUE)))
         );
 
-        jScrollBar1.setBackground(new java.awt.Color(204, 204, 204));
-        jScrollBar1.setForeground(new java.awt.Color(51, 204, 255));
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(102767, 102767));
 
-        scrollEventos.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollEventos.setEnabled(false);
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
-        tablaListaEventos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1119, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 508, Short.MAX_VALUE)
+        );
 
-            },
-            new String [] {
-                "Nombre", "Fecha", "Descripción", "Recinto", "Ciudad", "Estado", "Selección"
-            }
-        ));
-        tablaListaEventos.setEnabled(false);
-        scrollEventos.setViewportView(tablaListaEventos);
+        jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,20 +278,17 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(scrollEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 1037, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(scrollEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,8 +306,8 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel etqLogo;
     private javax.swing.JLabel etqNombreUsuario;
     private javax.swing.JLabel etqTitulo;
-    private javax.swing.Box.Filler filler1;
-    private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JScrollPane scrollEventos;
     private javax.swing.JTable tablaListaEventos;

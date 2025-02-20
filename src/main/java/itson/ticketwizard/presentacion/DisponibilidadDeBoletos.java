@@ -1,16 +1,32 @@
 package itson.ticketwizard.presentacion;
-
-import itson.ticketwizard.control.ControlIniciarSesion;
+import itson.ticketwizard.control.ControlCompra;
+import itson.ticketwizard.dtos.DatosEventoDTO;
+import itson.ticketwizard.entidades.Boleto;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 public class DisponibilidadDeBoletos extends javax.swing.JFrame {
 
-    private final ControlIniciarSesion control;
+    private final ControlCompra control;
     /**
      * Creates new form InicioSesionUsuario
      */
-    public DisponibilidadDeBoletos(ControlIniciarSesion control) {
+    public DisponibilidadDeBoletos(ControlCompra control) {
         initComponents();
         this.control = control;
+    }
+    
+    public void llenarTablaBoletos(Integer codigoEvento){
+        List<Boleto> listaBoletos = this.control.obtenerBoletos(codigoEvento);
+        DefaultTableModel modelo = (DefaultTableModel)this.tablaBoletosDisponibles.getModel();
+        for(Boleto boleto: listaBoletos){
+            Object[] filaTabla = {
+                boleto.getNumeroSerie(),
+                boleto.getFila(),
+                boleto.getAsiento()
+            };
+            modelo.addRow(filaTabla); 
+        }
     }
 
     /**
@@ -28,7 +44,8 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
         etqLogo = new javax.swing.JLabel();
         etqTitulo = new javax.swing.JLabel();
         etqNombreUsuario = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollBoletos = new javax.swing.JScrollPane();
+        tablaBoletosDisponibles = new javax.swing.JTable();
 
         jMenu1.setText("jMenu1");
 
@@ -39,14 +56,14 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
 
         etqLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTicketwizard.png"))); // NOI18N
 
-        etqTitulo.setText("Ticketwizard");
         etqTitulo.setBackground(new java.awt.Color(255, 255, 255));
         etqTitulo.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
         etqTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        etqTitulo.setText("Ticketwizard");
 
-        etqNombreUsuario.setText("Nombre de Usuario");
         etqNombreUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         etqNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        etqNombreUsuario.setText("Nombre de Usuario");
 
         javax.swing.GroupLayout panelEncabezadoLayout = new javax.swing.GroupLayout(panelEncabezado);
         panelEncabezado.setLayout(panelEncabezadoLayout);
@@ -82,8 +99,26 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
                     .addContainerGap(49, Short.MAX_VALUE)))
         );
 
-        jScrollPane1.setBackground(new java.awt.Color(204, 204, 255));
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollBoletos.setBackground(new java.awt.Color(204, 204, 255));
+        scrollBoletos.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        tablaBoletosDisponibles.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Numero de Serie", "Fila", "Asiento", "Selección de boleto"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        scrollBoletos.setViewportView(tablaBoletosDisponibles);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +127,7 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
             .addComponent(panelEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(71, 71, 71)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -100,7 +135,7 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 36, Short.MAX_VALUE))
         );
 
@@ -115,7 +150,8 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
     private javax.swing.JLabel etqTitulo;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelEncabezado;
+    private javax.swing.JScrollPane scrollBoletos;
+    private javax.swing.JTable tablaBoletosDisponibles;
     // End of variables declaration//GEN-END:variables
 }

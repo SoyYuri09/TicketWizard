@@ -2,67 +2,69 @@ package itson.ticketwizard.dtos;
 
 public class DatosEventoDTO {
     private String nombre;
-    private String fecha;
-    private String hora;
-    private String lugar;
+    private String recinto;
     private String descripcion;
-    private String imagen;
-    private String categoria;
-    private String organizador;
-    private String boletos;
-    private String asistentes;
-    
-    public DatosEventoDTO(String nombre, String fecha, String hora, String lugar, String descripcion, String imagen, String categoria, String organizador, String boletos, String asistentes) {
+    private String fecha;
+    private String estado;
+    private String ciudad;
+
+    public DatosEventoDTO(String nombre, String recinto, String descripcion, String fecha, String estado, String ciudad) {
         this.nombre = nombre;
-        this.fecha = fecha;
-        this.hora = hora;
-        this.lugar = lugar;
+        this.recinto = recinto;
         this.descripcion = descripcion;
-        this.imagen = imagen;
-        this.categoria = categoria;
-        this.organizador = organizador;
-        this.boletos = boletos;
-        this.asistentes = asistentes;
+        this.fecha = fecha;
+        this.estado = estado;
+        this.ciudad = ciudad;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getFecha() {
-        return fecha;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getHora() {
-        return hora;
+    public String getRecinto() {
+        return recinto;
     }
 
-    public String getLugar() {
-        return lugar;
+    public void setRecinto(String recinto) {
+        this.recinto = recinto;
     }
 
     public String getDescripcion() {
         return descripcion;
     }
 
-    public String getImagen() {
-        return imagen;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getFecha() {
+        return fecha;
     }
 
-    public String getOrganizador() {
-        return organizador;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
-    public String getBoletos() {
-        return boletos;
+    public String getEstado() {
+        return estado;
     }
 
-    public String getAsistentes() {
-        return asistentes;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+    
+
 
 }
