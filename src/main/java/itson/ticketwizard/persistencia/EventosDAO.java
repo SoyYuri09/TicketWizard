@@ -32,14 +32,12 @@ public class EventosDAO {
                             FROM EVENTOS;
         """;
 
-        List<Evento> listarEventos = new LinkedList<>();
+        List<Evento> listaEventos = new LinkedList<>();
         try {
             Connection conexion = this.manejadorConexiones.crearConexion();
             PreparedStatement comando = conexion.prepareStatement(codigoSQL);
-            //Si hubiera parámetros se pone comando.setStrin(), en este caso es una consulta así que no
-            ResultSet resultadosConsultaEventos = comando.executeQuery(); //executeQuery es para las consultas para que las filas de workbench salgan en java
-            while(resultadosConsultaEventos.next()){ //Cuando no sabes que tantas iteraciones hay es recomendable usar el while, mover a cada una de las filas devueltas
-                //Estamos dentro de una fila y podemos sacar cada una de sus partes
+            ResultSet resultadosConsultaEventos = comando.executeQuery();
+            while(resultadosConsultaEventos.next()){
                 Integer codigo = resultadosConsultaEventos.getInt("codigo");
                 String nombre = resultadosConsultaEventos.getString("nombre");
                 String recinto = resultadosConsultaEventos.getString("recinto");
@@ -47,16 +45,13 @@ public class EventosDAO {
                 String fecha = resultadosConsultaEventos.getString("fecha");
                 String estado = resultadosConsultaEventos.getString("estado");
                 String ciudad = resultadosConsultaEventos.getString("ciudad");
-                //Armar un objeto artista donde se empaquetarán los datos
                 Evento evento = new Evento(codigo, nombre, recinto, descripcion, fecha, estado, ciudad);
-                //Agregar artista a la lista
-                listarEventos.add(evento);
+                listaEventos.add(evento);
             }
-            System.out.println(listarEventos);
         } catch(SQLException ex){
-            System.out.println("Error al despelgar los eventos: " + ex.getMessage());
+            System.out.println("Error al desplegar los eventos: " + ex.getMessage());
         }
-        return listarEventos; //Retornar la lista, se puede hacer después del catch 
+        return listaEventos;
     }
     
 }

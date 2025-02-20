@@ -7,6 +7,7 @@ import itson.ticketwizard.dtos.NuevoUsuarioDTO;
 import itson.ticketwizard.dtos.SolicitudRegistroUsuarioDTO;
 import itson.ticketwizard.entidades.DireccionUsuario;
 import itson.ticketwizard.entidades.Usuario;
+import itson.ticketwizard.persistencia.BoletosDAO;
 import itson.ticketwizard.persistencia.DireccionesUsuariosDAO;
 import itson.ticketwizard.persistencia.EventosDAO;
 import itson.ticketwizard.persistencia.ManejadorConexiones;
@@ -14,7 +15,7 @@ import itson.ticketwizard.persistencia.UsuariosDAO;
 import itson.ticketwizard.presentacion.IngresoDatosInicioSesion;
 import itson.ticketwizard.presentacion.InicioSesionUsuario;
 import itson.ticketwizard.presentacion.IngresoDatosRegistro;
-import itson.ticketwizard.presentacion.OpcionesDeUsuario;
+import itson.ticketwizard.presentacion.EventosDisponibles;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -23,7 +24,7 @@ public class ControlIniciarSesion {
     private InicioSesionUsuario pantallaInicioSesion;
     private IngresoDatosRegistro formIngresoDatosRegistro;
     private IngresoDatosInicioSesion formIngresoDatosInicioSesion;
-    private OpcionesDeUsuario formOpcionesDeUsuario;
+    private EventosDisponibles formOpcionesDeUsuario;
     
     private UsuariosDAO usuariosDAO;
     private DireccionesUsuariosDAO direccionesUsuariosDAO;
@@ -60,7 +61,8 @@ public class ControlIniciarSesion {
   
     public void terminarInicioSesion(){
         EventosDAO eventosDAO = new EventosDAO(new ManejadorConexiones());
-        ControlCompra controlCompra = new ControlCompra(eventosDAO);
+        BoletosDAO boletosDAO = new BoletosDAO(new ManejadorConexiones());
+        ControlCompra controlCompra = new ControlCompra(eventosDAO, boletosDAO);
         controlCompra.iniciarCompra(formIngresoDatosInicioSesion);
     }
     

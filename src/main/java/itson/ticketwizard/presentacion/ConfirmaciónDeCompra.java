@@ -5,13 +5,13 @@ import itson.ticketwizard.entidades.Boleto;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class DisponibilidadDeBoletos extends javax.swing.JFrame {
+public class ConfirmaciónDeCompra extends javax.swing.JFrame {
 
     private final ControlCompra control;
     /**
      * Creates new form InicioSesionUsuario
      */
-    public DisponibilidadDeBoletos(ControlCompra control) {
+    public ConfirmaciónDeCompra(ControlCompra control) {
         initComponents();
         this.control = control;
     }
@@ -44,12 +44,6 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
         etqLogo = new javax.swing.JLabel();
         etqTitulo = new javax.swing.JLabel();
         etqNombreUsuario = new javax.swing.JLabel();
-        scrollBoletos = new javax.swing.JScrollPane();
-        tablaBoletosDisponibles = new javax.swing.JTable();
-        checkBoletera = new javax.swing.JCheckBox();
-        checkReventa = new javax.swing.JCheckBox();
-        btnComprar = new javax.swing.JButton();
-        btnVolver = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -103,106 +97,30 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
                     .addContainerGap(49, Short.MAX_VALUE)))
         );
 
-        scrollBoletos.setBackground(new java.awt.Color(204, 204, 255));
-        scrollBoletos.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        tablaBoletosDisponibles.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Numero de Serie", "Fila", "Asiento", "Selección de boleto"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        scrollBoletos.setViewportView(tablaBoletosDisponibles);
-
-        checkBoletera.setText("De la boletera");
-        checkBoletera.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBoleteraActionPerformed(evt);
-            }
-        });
-
-        checkReventa.setText("Reventa");
-
-        btnComprar.setText("Comprar");
-
-        btnVolver.setText("Volver");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(scrollBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, 923, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkReventa)
-                    .addComponent(checkBoletera))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(scrollBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(checkBoletera)
-                        .addGap(58, 58, 58)
-                        .addComponent(checkReventa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73)
-                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(0, 555, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void checkBoleteraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoleteraActionPerformed
-        List<Boleto> listaBoletos = this.control.obtenerBoletos(codigoEvento);
-        DefaultTableModel modelo = (DefaultTableModel)this.tablaBoletosDisponibles.getModel();
-        for(Boleto boleto: listaBoletos){
-            Object[] filaTabla = {
-                boleto.getNumeroSerie(),
-                boleto.getFila(),
-                boleto.getAsiento()
-            };
-            modelo.addRow(filaTabla); 
-        }
-    }//GEN-LAST:event_checkBoleteraActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnComprar;
-    private javax.swing.JButton btnVolver;
-    private javax.swing.JCheckBox checkBoletera;
-    private javax.swing.JCheckBox checkReventa;
     private javax.swing.JLabel etqLogo;
     private javax.swing.JLabel etqNombreUsuario;
     private javax.swing.JLabel etqTitulo;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel panelEncabezado;
-    private javax.swing.JScrollPane scrollBoletos;
-    private javax.swing.JTable tablaBoletosDisponibles;
     // End of variables declaration//GEN-END:variables
 }
