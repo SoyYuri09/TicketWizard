@@ -1,20 +1,21 @@
 package itson.ticketwizard.presentacion;
 import itson.ticketwizard.control.ControlCompra;
-import itson.ticketwizard.dtos.DatosEventoDTO;
 import itson.ticketwizard.entidades.Evento;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
-import javax.swing.table.DefaultTableModel;
+
+/**
+ * @author García López, Yuri Germán - ID: 00000252583
+ * @author Mendoza Baypoli, Vladimir Iván - ID: 00000252758
+ * @author Romo López, Manuel - ID: 00000253080
+ */
 
 public class EventosDisponibles extends javax.swing.JFrame {
 
@@ -40,7 +41,7 @@ public class EventosDisponibles extends javax.swing.JFrame {
         JButton[] arregloBotones = new JButton[listaEventos.size()];
         
         for(int i = 0; i < arregloBotones.length; i++){
-            arregloBotones[i] = new JButton();
+            arregloBotones[i] = new JButton("Seleccionar");
         }
         
         // Añadir botones en un ciclo for

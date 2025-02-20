@@ -8,6 +8,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author García López, Yuri Germán - ID: 00000252583
+ * @author Mendoza Baypoli, Vladimir Iván - ID: 00000252758
+ * @author Romo López, Manuel - ID: 00000253080
+ */
 
 public class DireccionesUsuariosDAO {
     private final ManejadorConexiones manejadorConexiones;

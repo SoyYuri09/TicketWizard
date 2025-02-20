@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package itson.ticketwizard.persistencia;
 
 import itson.ticketwizard.dtos.IngresoUsuarioDTO;
@@ -12,6 +9,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author García López, Yuri Germán - ID: 00000252583
+ * @author Mendoza Baypoli, Vladimir Iván - ID: 00000252758
+ * @author Romo López, Manuel - ID: 00000253080
+ */
 
 public class UsuariosDAO {
     private final ManejadorConexiones manejadorConexiones;

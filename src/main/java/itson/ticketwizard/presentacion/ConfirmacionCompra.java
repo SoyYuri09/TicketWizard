@@ -1,33 +1,23 @@
 package itson.ticketwizard.presentacion;
 import itson.ticketwizard.control.ControlCompra;
-import itson.ticketwizard.dtos.DatosEventoDTO;
-import itson.ticketwizard.entidades.Boleto;
-import java.util.List;
-import javax.swing.table.DefaultTableModel;
 
-public class ConfirmaciónDeCompra extends javax.swing.JFrame {
+/**
+ * @author García López, Yuri Germán - ID: 00000252583
+ * @author Mendoza Baypoli, Vladimir Iván - ID: 00000252758
+ * @author Romo López, Manuel - ID: 00000253080
+ */
+
+public class ConfirmacionCompra extends javax.swing.JFrame {
 
     private final ControlCompra control;
     /**
      * Creates new form InicioSesionUsuario
      */
-    public ConfirmaciónDeCompra(ControlCompra control) {
+    public ConfirmacionCompra(ControlCompra control) {
         initComponents();
         this.control = control;
     }
     
-    public void llenarTablaBoletos(Integer codigoEvento){
-        List<Boleto> listaBoletos = this.control.obtenerBoletos(codigoEvento);
-        DefaultTableModel modelo = (DefaultTableModel)this.tablaBoletosDisponibles.getModel();
-        for(Boleto boleto: listaBoletos){
-            Object[] filaTabla = {
-                boleto.getNumeroSerie(),
-                boleto.getFila(),
-                boleto.getAsiento()
-            };
-            modelo.addRow(filaTabla); 
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,6 +34,8 @@ public class ConfirmaciónDeCompra extends javax.swing.JFrame {
         etqLogo = new javax.swing.JLabel();
         etqTitulo = new javax.swing.JLabel();
         etqNombreUsuario = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        etqTituloConfirmacionCompra = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -72,7 +64,7 @@ public class ConfirmaciónDeCompra extends javax.swing.JFrame {
                 .addComponent(etqLogo)
                 .addGap(776, 776, 776)
                 .addComponent(etqNombreUsuario)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
             .addGroup(panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelEncabezadoLayout.createSequentialGroup()
                     .addGap(114, 114, 114)
@@ -97,17 +89,45 @@ public class ConfirmaciónDeCompra extends javax.swing.JFrame {
                     .addContainerGap(49, Short.MAX_VALUE)))
         );
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 646, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 369, Short.MAX_VALUE)
+        );
+
+        etqTituloConfirmacionCompra.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        etqTituloConfirmacionCompra.setText("Confirmación de compra");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(267, 267, 267)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(etqTituloConfirmacionCompra)
+                .addGap(490, 490, 490))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 555, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(etqTituloConfirmacionCompra)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 106, Short.MAX_VALUE))
         );
 
         pack();
@@ -119,8 +139,10 @@ public class ConfirmaciónDeCompra extends javax.swing.JFrame {
     private javax.swing.JLabel etqLogo;
     private javax.swing.JLabel etqNombreUsuario;
     private javax.swing.JLabel etqTitulo;
+    private javax.swing.JLabel etqTituloConfirmacionCompra;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelEncabezado;
     // End of variables declaration//GEN-END:variables
 }

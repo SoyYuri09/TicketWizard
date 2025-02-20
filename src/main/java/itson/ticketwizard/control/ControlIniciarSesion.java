@@ -19,6 +19,11 @@ import itson.ticketwizard.presentacion.EventosDisponibles;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+/**
+ * @author García López, Yuri Germán - ID: 00000252583
+ * @author Mendoza Baypoli, Vladimir Iván - ID: 00000252758
+ * @author Romo López, Manuel - ID: 00000253080
+ */
 
 public class ControlIniciarSesion {
     private InicioSesionUsuario pantallaInicioSesion;

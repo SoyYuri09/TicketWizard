@@ -1,6 +1,11 @@
 
 package itson.ticketwizard.dtos;
 
+/**
+ * @author García López, Yuri Germán - ID: 00000252583
+ * @author Mendoza Baypoli, Vladimir Iván - ID: 00000252758
+ * @author Romo López, Manuel - ID: 00000253080
+ */
 
 public class SolicitudRegistroUsuarioDTO {
     private String nombres;
