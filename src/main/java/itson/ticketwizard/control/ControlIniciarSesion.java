@@ -1,4 +1,3 @@
-
 package itson.ticketwizard.control;
 
 import itson.ticketwizard.dtos.NuevoUsuarioDTO;
@@ -6,6 +5,8 @@ import itson.ticketwizard.persistencia.UsuariosDAO;
 import itson.ticketwizard.presentacion.IngresoDatosInicioSesion;
 import itson.ticketwizard.presentacion.InicioSesionUsuario;
 import itson.ticketwizard.presentacion.IngresoDatosRegistro;
+import itson.ticketwizard.presentacion.OpcionesDeUsuario;
+import itson.ticketwizard.presentacion.OpcionesDeUsuario;
 import javax.swing.JFrame;
 
 
@@ -13,6 +14,7 @@ public class ControlIniciarSesion {
     private InicioSesionUsuario pantallaInicioSesion;
     private IngresoDatosRegistro formIngresoDatosRegistro;
     private IngresoDatosInicioSesion formIngresoDatosInicioSesion;
+    private OpcionesDeUsuario formOpcionesDeUsuario;
     
     private UsuariosDAO usuariosDAO;
 
@@ -50,7 +52,10 @@ public class ControlIniciarSesion {
         frameAnterior.dispose();
         this.iniciarCasoUso();
     }
-
     
-    
+    public void mostrarPantallaOpcionesDeUsuario(JFrame frameAnterior){
+        formOpcionesDeUsuario = new OpcionesDeUsuario(this);
+        frameAnterior.dispose();
+        formOpcionesDeUsuario.setVisible(true);
+    }
 }

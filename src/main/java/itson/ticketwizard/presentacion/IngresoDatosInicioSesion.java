@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package itson.ticketwizard.presentacion;
-
 import itson.ticketwizard.control.ControlIniciarSesion;
-
+import javax.swing.ImageIcon;
 /**
- *
  * @author romom
  */
 public class IngresoDatosInicioSesion extends javax.swing.JFrame {
@@ -31,10 +25,10 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
     private void initComponents() {
 
         panelEncabezado = new javax.swing.JPanel();
-        labelTitulo = new javax.swing.JLabel();
-        labelLogo = new javax.swing.JLabel();
+        etqTitulo = new javax.swing.JLabel();
+        etqLogo = new javax.swing.JLabel();
         panelIngresoDatos = new javax.swing.JPanel();
-        tituloIngresoDatos = new javax.swing.JLabel();
+        etqIngresoDatos = new javax.swing.JLabel();
         campoCorreoElectronico = new javax.swing.JTextField();
         etqCorreoElectronico = new javax.swing.JLabel();
         etqContrasenia = new javax.swing.JLabel();
@@ -45,15 +39,16 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
         etqSinCuenta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("TicketWizard");
 
         panelEncabezado.setBackground(new java.awt.Color(0, 0, 153));
 
-        labelTitulo.setBackground(new java.awt.Color(255, 255, 255));
-        labelTitulo.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
-        labelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        labelTitulo.setText("Ticketwizard");
+        etqTitulo.setText("Ticketwizard");
+        etqTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        etqTitulo.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
+        etqTitulo.setForeground(new java.awt.Color(255, 255, 255));
 
-        labelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTicketwizard.png"))); // NOI18N
+        etqLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTicketwizard.png"))); // NOI18N
 
         javax.swing.GroupLayout panelEncabezadoLayout = new javax.swing.GroupLayout(panelEncabezado);
         panelEncabezado.setLayout(panelEncabezadoLayout);
@@ -61,9 +56,9 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
             panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEncabezadoLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(labelLogo)
+                .addComponent(etqLogo)
                 .addGap(305, 305, 305)
-                .addComponent(labelTitulo)
+                .addComponent(etqTitulo)
                 .addContainerGap(405, Short.MAX_VALUE))
         );
         panelEncabezadoLayout.setVerticalGroup(
@@ -72,23 +67,28 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
                 .addGroup(panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEncabezadoLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(labelTitulo))
+                        .addComponent(etqTitulo))
                     .addGroup(panelEncabezadoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(labelLogo)))
+                        .addComponent(etqLogo)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
         panelIngresoDatos.setBackground(new java.awt.Color(255, 255, 255));
 
-        tituloIngresoDatos.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        tituloIngresoDatos.setText("Ingrese sus datos");
+        etqIngresoDatos.setText("Ingrese sus datos");
+        etqIngresoDatos.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
         etqCorreoElectronico.setText("Correo electrónico:");
 
         etqContrasenia.setText("Contraseña:");
 
         btnIngresar.setText("Ingresar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +112,7 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
                         .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(campoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(campoCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tituloIngresoDatos))
+                            .addComponent(etqIngresoDatos))
                         .addGap(122, 122, 122))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIngresoDatosLayout.createSequentialGroup()
                         .addComponent(btnVolver)
@@ -124,7 +124,7 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
             panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIngresoDatosLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(tituloIngresoDatos)
+                .addComponent(etqIngresoDatos)
                 .addGap(40, 40, 40)
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,6 +191,10 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
         this.control.volverPantallaIniciarSesion(this);
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+       this.control.mostrarPantallaOpcionesDeUsuario(this);
+    }//GEN-LAST:event_btnIngresarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
@@ -200,11 +204,11 @@ public class IngresoDatosInicioSesion extends javax.swing.JFrame {
     private javax.swing.JTextField campoCorreoElectronico;
     private javax.swing.JLabel etqContrasenia;
     private javax.swing.JLabel etqCorreoElectronico;
+    private javax.swing.JLabel etqIngresoDatos;
+    private javax.swing.JLabel etqLogo;
     private javax.swing.JLabel etqSinCuenta;
-    private javax.swing.JLabel labelLogo;
-    private javax.swing.JLabel labelTitulo;
+    private javax.swing.JLabel etqTitulo;
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JPanel panelIngresoDatos;
-    private javax.swing.JLabel tituloIngresoDatos;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,9 +1,6 @@
-
 package itson.ticketwizard.presentacion;
 
 import itson.ticketwizard.control.ControlIniciarSesion;
-import itson.ticketwizard.dtos.NuevoUsuarioDTO;
-
 
 public class InicioSesionUsuario extends javax.swing.JFrame {
 
@@ -26,23 +23,24 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         panelEncabezado = new javax.swing.JPanel();
-        labelTitulo = new javax.swing.JLabel();
-        labelLogo = new javax.swing.JLabel();
+        etqTitulo = new javax.swing.JLabel();
+        etqLogo = new javax.swing.JLabel();
         panelSeleccion = new javax.swing.JPanel();
-        tituloSeleccion = new javax.swing.JLabel();
-        jButtonIniciarSesion = new javax.swing.JButton();
-        jButtonRegistrarse = new javax.swing.JButton();
+        etqBienvenido = new javax.swing.JLabel();
+        btnIniciarSesion = new javax.swing.JButton();
+        btnRegistrarse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("TicketWizard");
 
         panelEncabezado.setBackground(new java.awt.Color(0, 0, 153));
 
-        labelTitulo.setBackground(new java.awt.Color(255, 255, 255));
-        labelTitulo.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
-        labelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        labelTitulo.setText("Ticketwizard");
+        etqTitulo.setText("Ticketwizard");
+        etqTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        etqTitulo.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
+        etqTitulo.setForeground(new java.awt.Color(255, 255, 255));
 
-        labelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTicketwizard.png"))); // NOI18N
+        etqLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTicketwizard.png"))); // NOI18N
 
         javax.swing.GroupLayout panelEncabezadoLayout = new javax.swing.GroupLayout(panelEncabezado);
         panelEncabezado.setLayout(panelEncabezadoLayout);
@@ -50,9 +48,9 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
             panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEncabezadoLayout.createSequentialGroup()
                 .addGap(251, 251, 251)
-                .addComponent(labelLogo)
+                .addComponent(etqLogo)
                 .addGap(18, 18, 18)
-                .addComponent(labelTitulo)
+                .addComponent(etqTitulo)
                 .addContainerGap(305, Short.MAX_VALUE))
         );
         panelEncabezadoLayout.setVerticalGroup(
@@ -61,29 +59,29 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
                 .addGroup(panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEncabezadoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(labelLogo))
+                        .addComponent(etqLogo))
                     .addGroup(panelEncabezadoLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(labelTitulo)))
+                        .addComponent(etqTitulo)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
         panelSeleccion.setBackground(new java.awt.Color(255, 255, 255));
 
-        tituloSeleccion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        tituloSeleccion.setText("Bienvenido a Ticketwizard");
+        etqBienvenido.setText("Bienvenido a Ticketwizard");
+        etqBienvenido.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
-        jButtonIniciarSesion.setText("Iniciar Sesión");
-        jButtonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+        btnIniciarSesion.setText("Iniciar Sesión");
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarSesionActionPerformed(evt);
+                btnIniciarSesionActionPerformed(evt);
             }
         });
 
-        jButtonRegistrarse.setText("Registrarse");
-        jButtonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarseActionPerformed(evt);
+                btnRegistrarseActionPerformed(evt);
             }
         });
 
@@ -93,27 +91,24 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
             panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSeleccionLayout.createSequentialGroup()
                 .addGap(0, 30, Short.MAX_VALUE)
-                .addComponent(tituloSeleccion)
+                .addComponent(etqBienvenido)
                 .addGap(23, 23, 23))
             .addGroup(panelSeleccionLayout.createSequentialGroup()
-                .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelSeleccionLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(jButtonIniciarSesion))
-                    .addGroup(panelSeleccionLayout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jButtonRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(79, 79, 79)
+                .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelSeleccionLayout.setVerticalGroup(
             panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSeleccionLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(tituloSeleccion)
+                .addComponent(etqBienvenido)
                 .addGap(39, 39, 39)
-                .addComponent(jButtonIniciarSesion)
+                .addComponent(btnIniciarSesion)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonRegistrarse)
+                .addComponent(btnRegistrarse)
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -140,22 +135,22 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
-    private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
+    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         this.control.mostrarFormularioIngreso(this);
-    }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
+    }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
-    private void jButtonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarseActionPerformed
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         this.control.mostrarFormularioRegistro(this);
-    }//GEN-LAST:event_jButtonRegistrarseActionPerformed
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonIniciarSesion;
-    private javax.swing.JButton jButtonRegistrarse;
-    private javax.swing.JLabel labelLogo;
-    private javax.swing.JLabel labelTitulo;
+    private javax.swing.JButton btnIniciarSesion;
+    private javax.swing.JButton btnRegistrarse;
+    private javax.swing.JLabel etqBienvenido;
+    private javax.swing.JLabel etqLogo;
+    private javax.swing.JLabel etqTitulo;
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JPanel panelSeleccion;
-    private javax.swing.JLabel tituloSeleccion;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,6 +1,4 @@
-
 package itson.ticketwizard.dtos;
-
 
 public class NuevoUsuarioDTO {
     private String nombres;

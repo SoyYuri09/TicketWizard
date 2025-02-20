@@ -1,15 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package itson.ticketwizard.presentacion;
 
 import itson.ticketwizard.control.ControlIniciarSesion;
 import itson.ticketwizard.dtos.NuevoUsuarioDTO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
 /**
- *
  * @author romom
  */
 public class IngresoDatosRegistro extends javax.swing.JFrame {
@@ -33,46 +28,46 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
     private void initComponents() {
 
         panelEncabezado = new javax.swing.JPanel();
-        labelTitulo = new javax.swing.JLabel();
-        labelLogo = new javax.swing.JLabel();
+        etqTitulo = new javax.swing.JLabel();
+        etqLogo = new javax.swing.JLabel();
         panelIngresoDatos = new javax.swing.JPanel();
-        tituloIngresoDatos = new javax.swing.JLabel();
-        labelNombre = new javax.swing.JLabel();
-        textFieldNombre = new javax.swing.JTextField();
-        labelApellidoPaterno = new javax.swing.JLabel();
-        textFieldApellidoPaterno = new javax.swing.JTextField();
-        labelApellidoMaterno = new javax.swing.JLabel();
-        textFieldApellidoMaterno = new javax.swing.JTextField();
-        labelFechaNacimiento = new javax.swing.JLabel();
-        datePickerFechaNacimiento = new com.github.lgooddatepicker.components.DatePicker();
-        labelSubtitulo = new javax.swing.JLabel();
-        labelCalle = new javax.swing.JLabel();
-        textFieldEstado = new javax.swing.JTextField();
-        labelCiudad = new javax.swing.JLabel();
-        textFieldCiudad = new javax.swing.JTextField();
-        labelEstado = new javax.swing.JLabel();
-        textFieldColonia = new javax.swing.JTextField();
-        labelColonia1 = new javax.swing.JLabel();
-        textFieldCalle = new javax.swing.JTextField();
-        labelNúmero = new javax.swing.JLabel();
-        textFieldNumero = new javax.swing.JTextField();
-        textFieldCorreoElectronico = new javax.swing.JTextField();
+        etqIngresoDatos = new javax.swing.JLabel();
+        etqNombre = new javax.swing.JLabel();
+        campoNombre = new javax.swing.JTextField();
+        etqApellidoPaterno = new javax.swing.JLabel();
+        campoApellidoPaterno = new javax.swing.JTextField();
+        etqApellidoMaterno = new javax.swing.JLabel();
+        campoApellidoMaterno = new javax.swing.JTextField();
+        etqFechaNacimiento = new javax.swing.JLabel();
+        campoFechaNacimiento = new com.github.lgooddatepicker.components.DatePicker();
+        etqDatosDeUbicacion = new javax.swing.JLabel();
+        etqCalle = new javax.swing.JLabel();
+        campoEstado = new javax.swing.JTextField();
+        etqCiudad = new javax.swing.JLabel();
+        campoCiudad = new javax.swing.JTextField();
+        etqEstado = new javax.swing.JLabel();
+        campoColonia = new javax.swing.JTextField();
+        etqColonia = new javax.swing.JLabel();
+        campoCalle = new javax.swing.JTextField();
+        etqNúmero = new javax.swing.JLabel();
+        campoNumero = new javax.swing.JTextField();
+        campoCorreoElectronico = new javax.swing.JTextField();
         labelCorreoElectronico = new javax.swing.JLabel();
-        labelContrasenia = new javax.swing.JLabel();
-        jPasswordContrasenia = new javax.swing.JPasswordField();
-        jButtonVolver = new javax.swing.JButton();
-        jButtonGuardarDatos = new javax.swing.JButton();
+        etqContrasenia = new javax.swing.JLabel();
+        campoContrasenia = new javax.swing.JPasswordField();
+        btnVolver = new javax.swing.JButton();
+        btnGuardarDatos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelEncabezado.setBackground(new java.awt.Color(0, 0, 153));
 
-        labelTitulo.setText("Ticketwizard");
-        labelTitulo.setBackground(new java.awt.Color(255, 255, 255));
-        labelTitulo.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
-        labelTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        etqTitulo.setText("Ticketwizard");
+        etqTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        etqTitulo.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
+        etqTitulo.setForeground(new java.awt.Color(255, 255, 255));
 
-        labelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTicketwizard.png"))); // NOI18N
+        etqLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTicketwizard.png"))); // NOI18N
 
         javax.swing.GroupLayout panelEncabezadoLayout = new javax.swing.GroupLayout(panelEncabezado);
         panelEncabezado.setLayout(panelEncabezadoLayout);
@@ -80,9 +75,9 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
             panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEncabezadoLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(labelLogo)
+                .addComponent(etqLogo)
                 .addGap(305, 305, 305)
-                .addComponent(labelTitulo)
+                .addComponent(etqTitulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelEncabezadoLayout.setVerticalGroup(
@@ -91,42 +86,42 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
                 .addGroup(panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEncabezadoLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(labelTitulo))
+                        .addComponent(etqTitulo))
                     .addGroup(panelEncabezadoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(labelLogo)))
+                        .addComponent(etqLogo)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
         panelIngresoDatos.setBackground(new java.awt.Color(255, 255, 255));
 
-        tituloIngresoDatos.setText("Ingrese sus datos");
-        tituloIngresoDatos.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        etqIngresoDatos.setText("Ingrese sus datos");
+        etqIngresoDatos.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
-        labelNombre.setText("Nombre(s):");
+        etqNombre.setText("Nombre(s):");
 
-        labelApellidoPaterno.setText("Apellido paterno:");
+        etqApellidoPaterno.setText("Apellido paterno:");
 
-        labelApellidoMaterno.setText("Apellido materno:");
+        etqApellidoMaterno.setText("Apellido materno:");
 
-        labelFechaNacimiento.setText("Fecha de nacimiento:");
+        etqFechaNacimiento.setText("Fecha de nacimiento:");
 
-        labelSubtitulo.setText("Datos de ubicación");
-        labelSubtitulo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        etqDatosDeUbicacion.setText("Datos de ubicación");
+        etqDatosDeUbicacion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        labelCalle.setText("Calle:");
+        etqCalle.setText("Calle:");
 
-        labelCiudad.setText("Ciudad:");
+        etqCiudad.setText("Ciudad:");
 
-        labelEstado.setText("Estado:");
+        etqEstado.setText("Estado:");
 
-        labelColonia1.setText("Colonia:");
+        etqColonia.setText("Colonia:");
 
-        labelNúmero.setText("Número:");
+        etqNúmero.setText("Número:");
 
         labelCorreoElectronico.setText("Correo electrónico:");
 
-        labelContrasenia.setText("Contraseña:");
+        etqContrasenia.setText("Contraseña:");
 
         javax.swing.GroupLayout panelIngresoDatosLayout = new javax.swing.GroupLayout(panelIngresoDatos);
         panelIngresoDatos.setLayout(panelIngresoDatosLayout);
@@ -137,117 +132,117 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelIngresoDatosLayout.createSequentialGroup()
                         .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelNombre)
-                            .addComponent(labelFechaNacimiento)
-                            .addComponent(labelApellidoMaterno)
-                            .addComponent(labelApellidoPaterno)
+                            .addComponent(etqNombre)
+                            .addComponent(etqFechaNacimiento)
+                            .addComponent(etqApellidoMaterno)
+                            .addComponent(etqApellidoPaterno)
                             .addComponent(labelCorreoElectronico)
-                            .addComponent(labelContrasenia))
+                            .addComponent(etqContrasenia))
                         .addGap(18, 18, 18)
                         .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textFieldNombre)
-                            .addComponent(textFieldApellidoPaterno)
-                            .addComponent(textFieldApellidoMaterno)
-                            .addComponent(datePickerFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                            .addComponent(textFieldCorreoElectronico, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                            .addComponent(jPasswordContrasenia)))
+                            .addComponent(campoNombre)
+                            .addComponent(campoApellidoPaterno)
+                            .addComponent(campoApellidoMaterno)
+                            .addComponent(campoFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                            .addComponent(campoCorreoElectronico, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                            .addComponent(campoContrasenia)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelIngresoDatosLayout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelCiudad)
-                            .addComponent(labelColonia1)
-                            .addComponent(labelEstado))
+                            .addComponent(etqCiudad)
+                            .addComponent(etqColonia)
+                            .addComponent(etqEstado))
                         .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelIngresoDatosLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelIngresoDatosLayout.createSequentialGroup()
-                                        .addComponent(textFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(campoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(36, 36, 36)
-                                        .addComponent(labelCalle)
+                                        .addComponent(etqCalle)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(textFieldCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(campoCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(panelIngresoDatosLayout.createSequentialGroup()
                                         .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(textFieldCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                            .addComponent(textFieldColonia))
+                                            .addComponent(campoCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                                            .addComponent(campoColonia))
                                         .addGap(18, 18, 18)
-                                        .addComponent(labelNúmero)
+                                        .addComponent(etqNúmero)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(textFieldNumero))))
+                                        .addComponent(campoNumero))))
                             .addGroup(panelIngresoDatosLayout.createSequentialGroup()
                                 .addGap(75, 75, 75)
-                                .addComponent(labelSubtitulo)
+                                .addComponent(etqDatosDeUbicacion)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(81, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIngresoDatosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tituloIngresoDatos)
+                .addComponent(etqIngresoDatos)
                 .addGap(160, 160, 160))
         );
         panelIngresoDatosLayout.setVerticalGroup(
             panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIngresoDatosLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(tituloIngresoDatos)
+                .addComponent(etqIngresoDatos)
                 .addGap(18, 18, 18)
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelCorreoElectronico))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNombre))
+                    .addComponent(campoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etqNombre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldApellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelApellidoPaterno))
+                    .addComponent(campoApellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etqApellidoPaterno))
                 .addGap(8, 8, 8)
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelApellidoMaterno))
+                    .addComponent(campoApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etqApellidoMaterno))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelFechaNacimiento)
-                    .addComponent(datePickerFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(etqFechaNacimiento)
+                    .addComponent(campoFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelContrasenia)
-                    .addComponent(jPasswordContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(etqContrasenia)
+                    .addComponent(campoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
-                .addComponent(labelSubtitulo)
+                .addComponent(etqDatosDeUbicacion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(textFieldCalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelCalle))
+                        .addComponent(campoCalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(etqCalle))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(textFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelEstado)))
+                        .addComponent(campoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(etqEstado)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNúmero)
-                    .addComponent(labelCiudad))
+                    .addComponent(campoCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etqNúmero)
+                    .addComponent(etqCiudad))
                 .addGap(7, 7, 7)
                 .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldColonia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelColonia1))
+                    .addComponent(campoColonia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etqColonia))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jButtonVolver.setText("Volver");
-        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVolverActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
 
-        jButtonGuardarDatos.setText("Guardar datos");
-        jButtonGuardarDatos.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarDatos.setText("Guardar datos");
+        btnGuardarDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGuardarDatosActionPerformed(evt);
+                btnGuardarDatosActionPerformed(evt);
             }
         });
 
@@ -258,9 +253,9 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
             .addComponent(panelEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(438, 438, 438)
-                .addComponent(jButtonVolver)
+                .addComponent(btnVolver)
                 .addGap(49, 49, 49)
-                .addComponent(jButtonGuardarDatos)
+                .addComponent(btnGuardarDatos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(252, Short.MAX_VALUE)
@@ -275,8 +270,8 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
                 .addComponent(panelIngresoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonVolver)
-                    .addComponent(jButtonGuardarDatos))
+                    .addComponent(btnVolver)
+                    .addComponent(btnGuardarDatos))
                 .addGap(0, 42, Short.MAX_VALUE))
         );
 
@@ -284,71 +279,71 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonGuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarDatosActionPerformed
+    private void btnGuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDatosActionPerformed
         
-        String nombres = this.textFieldNombre.getText();
-        String apellidoPaterno = this.textFieldApellidoPaterno.getText();
-        String apellidoMaterno = this.textFieldApellidoMaterno.getText();
-        String correoElectronico = this.textFieldCorreoElectronico.getText();
-        String fechaNacimiento = this.datePickerFechaNacimiento.getDateStringOrEmptyString();
-        char[] contrasenia = this.jPasswordContrasenia.getPassword();
+        String nombres = this.campoNombre.getText();
+        String apellidoPaterno = this.campoApellidoPaterno.getText();
+        String apellidoMaterno = this.campoApellidoMaterno.getText();
+        String correoElectronico = this.campoCorreoElectronico.getText();
+        String fechaNacimiento = this.campoFechaNacimiento.getDateStringOrEmptyString();
+        char[] contrasenia = this.campoContrasenia.getPassword();
         
         String contraseniaString = "";
         for(char c: contrasenia){
             contraseniaString += c;
         }
         
-        String estado = this.textFieldEstado.getText();
-        String ciudad = this.textFieldCiudad.getText();
-        String colonia = this.textFieldColonia.getText();
-        String calle = this.textFieldCalle.getText();
-        Integer numero = Integer.valueOf(this.textFieldNumero.getText());
+        String estado = this.campoEstado.getText();
+        String ciudad = this.campoCiudad.getText();
+        String colonia = this.campoColonia.getText();
+        String calle = this.campoCalle.getText();
+        Integer numero = Integer.valueOf(this.campoNumero.getText());
         
         NuevoUsuarioDTO nuevoUsuarioDTO = new NuevoUsuarioDTO(nombres, apellidoPaterno, apellidoMaterno, 
                 correoElectronico, fechaNacimiento, contraseniaString, estado, ciudad, colonia, calle, numero);
         
         this.control.validarUsuario(nuevoUsuarioDTO);
-    }//GEN-LAST:event_jButtonGuardarDatosActionPerformed
+    }//GEN-LAST:event_btnGuardarDatosActionPerformed
 
-    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         this.control.volverPantallaIniciarSesion(this);
-    }//GEN-LAST:event_jButtonVolverActionPerformed
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     public void mostrarMensajeUsuarioExistente(){
-        JOptionPane.showMessageDialog(this, "El usuario" + this.textFieldCorreoElectronico + "ya está en uso", "Usuario inválido", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "El usuario" + this.campoCorreoElectronico + "ya está en uso", "Usuario inválido", JOptionPane.INFORMATION_MESSAGE);
     }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.github.lgooddatepicker.components.DatePicker datePickerFechaNacimiento;
-    private javax.swing.JButton jButtonGuardarDatos;
-    private javax.swing.JButton jButtonVolver;
-    private javax.swing.JPasswordField jPasswordContrasenia;
-    private javax.swing.JLabel labelApellidoMaterno;
-    private javax.swing.JLabel labelApellidoPaterno;
-    private javax.swing.JLabel labelCalle;
-    private javax.swing.JLabel labelCiudad;
-    private javax.swing.JLabel labelColonia1;
-    private javax.swing.JLabel labelContrasenia;
+    private javax.swing.JButton btnGuardarDatos;
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JTextField campoApellidoMaterno;
+    private javax.swing.JTextField campoApellidoPaterno;
+    private javax.swing.JTextField campoCalle;
+    private javax.swing.JTextField campoCiudad;
+    private javax.swing.JTextField campoColonia;
+    private javax.swing.JPasswordField campoContrasenia;
+    private javax.swing.JTextField campoCorreoElectronico;
+    private javax.swing.JTextField campoEstado;
+    private com.github.lgooddatepicker.components.DatePicker campoFechaNacimiento;
+    private javax.swing.JTextField campoNombre;
+    private javax.swing.JTextField campoNumero;
+    private javax.swing.JLabel etqApellidoMaterno;
+    private javax.swing.JLabel etqApellidoPaterno;
+    private javax.swing.JLabel etqCalle;
+    private javax.swing.JLabel etqCiudad;
+    private javax.swing.JLabel etqColonia;
+    private javax.swing.JLabel etqContrasenia;
+    private javax.swing.JLabel etqDatosDeUbicacion;
+    private javax.swing.JLabel etqEstado;
+    private javax.swing.JLabel etqFechaNacimiento;
+    private javax.swing.JLabel etqIngresoDatos;
+    private javax.swing.JLabel etqLogo;
+    private javax.swing.JLabel etqNombre;
+    private javax.swing.JLabel etqNúmero;
+    private javax.swing.JLabel etqTitulo;
     private javax.swing.JLabel labelCorreoElectronico;
-    private javax.swing.JLabel labelEstado;
-    private javax.swing.JLabel labelFechaNacimiento;
-    private javax.swing.JLabel labelLogo;
-    private javax.swing.JLabel labelNombre;
-    private javax.swing.JLabel labelNúmero;
-    private javax.swing.JLabel labelSubtitulo;
-    private javax.swing.JLabel labelTitulo;
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JPanel panelIngresoDatos;
-    private javax.swing.JTextField textFieldApellidoMaterno;
-    private javax.swing.JTextField textFieldApellidoPaterno;
-    private javax.swing.JTextField textFieldCalle;
-    private javax.swing.JTextField textFieldCiudad;
-    private javax.swing.JTextField textFieldColonia;
-    private javax.swing.JTextField textFieldCorreoElectronico;
-    private javax.swing.JTextField textFieldEstado;
-    private javax.swing.JTextField textFieldNombre;
-    private javax.swing.JTextField textFieldNumero;
-    private javax.swing.JLabel tituloIngresoDatos;
     // End of variables declaration//GEN-END:variables
 }

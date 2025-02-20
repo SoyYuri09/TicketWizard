@@ -1,10 +1,8 @@
-
 package itson.ticketwizard.persistencia;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 
 public class ManejadorConexiones {
     private final String cadenaConexion = "jdbc:mysql://localhost/ticketwizardDb";

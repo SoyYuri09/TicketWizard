@@ -26,9 +26,9 @@
           <Component id="panelEncabezado" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="438" max="-2" attributes="0"/>
-              <Component id="jButtonVolver" min="-2" max="-2" attributes="0"/>
+              <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-              <Component id="jButtonGuardarDatos" min="-2" max="-2" attributes="0"/>
+              <Component id="btnGuardarDatos" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
@@ -46,8 +46,8 @@
               <Component id="panelIngresoDatos" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonVolver" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonGuardarDatos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnVolver" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnGuardarDatos" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="42" max="32767" attributes="0"/>
           </Group>
@@ -67,9 +67,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="labelLogo" min="-2" max="-2" attributes="0"/>
+                  <Component id="etqLogo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
-                  <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
+                  <Component id="etqTitulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -80,11 +80,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
+                          <Component id="etqTitulo" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="labelLogo" min="-2" max="-2" attributes="0"/>
+                          <Component id="etqLogo" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="20" max="32767" attributes="0"/>
@@ -93,7 +93,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="labelTitulo">
+        <Component class="javax.swing.JLabel" name="etqTitulo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ticketwizard"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -107,7 +107,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelLogo">
+        <Component class="javax.swing.JLabel" name="etqLogo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/logoTicketwizard.png"/>
@@ -131,56 +131,56 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="labelNombre" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelFechaNacimiento" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelApellidoMaterno" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelApellidoPaterno" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="etqNombre" min="-2" max="-2" attributes="0"/>
+                              <Component id="etqFechaNacimiento" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="etqApellidoMaterno" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="etqApellidoPaterno" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="labelCorreoElectronico" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelContrasenia" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="etqContrasenia" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="textFieldNombre" max="32767" attributes="0"/>
-                              <Component id="textFieldApellidoPaterno" max="32767" attributes="0"/>
-                              <Component id="textFieldApellidoMaterno" max="32767" attributes="0"/>
-                              <Component id="datePickerFechaNacimiento" alignment="0" pref="193" max="32767" attributes="0"/>
-                              <Component id="textFieldCorreoElectronico" alignment="0" pref="193" max="32767" attributes="0"/>
-                              <Component id="jPasswordContrasenia" alignment="0" max="32767" attributes="0"/>
+                              <Component id="campoNombre" max="32767" attributes="0"/>
+                              <Component id="campoApellidoPaterno" max="32767" attributes="0"/>
+                              <Component id="campoApellidoMaterno" max="32767" attributes="0"/>
+                              <Component id="campoFechaNacimiento" alignment="0" pref="193" max="32767" attributes="0"/>
+                              <Component id="campoCorreoElectronico" alignment="0" pref="193" max="32767" attributes="0"/>
+                              <Component id="campoContrasenia" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="labelCiudad" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelColonia1" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelEstado" min="-2" max="-2" attributes="0"/>
+                              <Component id="etqCiudad" min="-2" max="-2" attributes="0"/>
+                              <Component id="etqColonia" min="-2" max="-2" attributes="0"/>
+                              <Component id="etqEstado" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="textFieldEstado" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <Component id="campoEstado" min="-2" pref="100" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                          <Component id="labelCalle" min="-2" max="-2" attributes="0"/>
+                                          <Component id="etqCalle" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="textFieldCalle" min="-2" pref="102" max="-2" attributes="0"/>
+                                          <Component id="campoCalle" min="-2" pref="102" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="textFieldCiudad" pref="103" max="32767" attributes="0"/>
-                                              <Component id="textFieldColonia" max="32767" attributes="0"/>
+                                              <Component id="campoCiudad" pref="103" max="32767" attributes="0"/>
+                                              <Component id="campoColonia" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="labelNúmero" min="-2" max="-2" attributes="0"/>
+                                          <Component id="etqNúmero" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="textFieldNumero" max="32767" attributes="0"/>
+                                          <Component id="campoNumero" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                                  <Component id="labelSubtitulo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="etqDatosDeUbicacion" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -190,7 +190,7 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="tituloIngresoDatos" min="-2" max="-2" attributes="0"/>
+                  <Component id="etqIngresoDatos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -199,61 +199,61 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                  <Component id="tituloIngresoDatos" min="-2" max="-2" attributes="0"/>
+                  <Component id="etqIngresoDatos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="textFieldCorreoElectronico" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoCorreoElectronico" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="labelCorreoElectronico" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="textFieldNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etqNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="textFieldApellidoPaterno" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelApellidoPaterno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoApellidoPaterno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etqApellidoPaterno" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="textFieldApellidoMaterno" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelApellidoMaterno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoApellidoMaterno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etqApellidoMaterno" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelFechaNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="datePickerFechaNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etqFechaNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoFechaNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelContrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPasswordContrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etqContrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoContrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                  <Component id="labelSubtitulo" min="-2" max="-2" attributes="0"/>
+                  <Component id="etqDatosDeUbicacion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                          <Component id="textFieldCalle" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelCalle" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoCalle" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="etqCalle" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                          <Component id="textFieldEstado" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="etqEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="textFieldCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="textFieldNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelNúmero" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etqNúmero" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etqCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="textFieldColonia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelColonia1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoColonia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="etqColonia" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
@@ -261,7 +261,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="tituloIngresoDatos">
+        <Component class="javax.swing.JLabel" name="etqIngresoDatos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ingrese sus datos"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -269,44 +269,44 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelNombre">
+        <Component class="javax.swing.JLabel" name="etqNombre">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nombre(s):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textFieldNombre">
+        <Component class="javax.swing.JTextField" name="campoNombre">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelApellidoPaterno">
+        <Component class="javax.swing.JLabel" name="etqApellidoPaterno">
           <Properties>
             <Property name="text" type="java.lang.String" value="Apellido paterno:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textFieldApellidoPaterno">
+        <Component class="javax.swing.JTextField" name="campoApellidoPaterno">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelApellidoMaterno">
+        <Component class="javax.swing.JLabel" name="etqApellidoMaterno">
           <Properties>
             <Property name="text" type="java.lang.String" value="Apellido materno:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textFieldApellidoMaterno">
+        <Component class="javax.swing.JTextField" name="campoApellidoMaterno">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelFechaNacimiento">
+        <Component class="javax.swing.JLabel" name="etqFechaNacimiento">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fecha de nacimiento:"/>
           </Properties>
         </Component>
-        <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePickerFechaNacimiento">
+        <Component class="com.github.lgooddatepicker.components.DatePicker" name="campoFechaNacimiento">
         </Component>
-        <Component class="javax.swing.JLabel" name="labelSubtitulo">
+        <Component class="javax.swing.JLabel" name="etqDatosDeUbicacion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Datos de ubicaci&#xf3;n"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -314,57 +314,57 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelCalle">
+        <Component class="javax.swing.JLabel" name="etqCalle">
           <Properties>
             <Property name="text" type="java.lang.String" value="Calle:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textFieldEstado">
+        <Component class="javax.swing.JTextField" name="campoEstado">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelCiudad">
+        <Component class="javax.swing.JLabel" name="etqCiudad">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ciudad:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textFieldCiudad">
+        <Component class="javax.swing.JTextField" name="campoCiudad">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelEstado">
+        <Component class="javax.swing.JLabel" name="etqEstado">
           <Properties>
             <Property name="text" type="java.lang.String" value="Estado:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textFieldColonia">
+        <Component class="javax.swing.JTextField" name="campoColonia">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelColonia1">
+        <Component class="javax.swing.JLabel" name="etqColonia">
           <Properties>
             <Property name="text" type="java.lang.String" value="Colonia:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textFieldCalle">
+        <Component class="javax.swing.JTextField" name="campoCalle">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelN&#xfa;mero">
+        <Component class="javax.swing.JLabel" name="etqN&#xfa;mero">
           <Properties>
             <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textFieldNumero">
+        <Component class="javax.swing.JTextField" name="campoNumero">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="textFieldCorreoElectronico">
+        <Component class="javax.swing.JTextField" name="campoCorreoElectronico">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RegistroDatosInicioSesion_jTextField1"/>
           </AuxValues>
@@ -374,29 +374,29 @@
             <Property name="text" type="java.lang.String" value="Correo electr&#xf3;nico:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelContrasenia">
+        <Component class="javax.swing.JLabel" name="etqContrasenia">
           <Properties>
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordContrasenia">
+        <Component class="javax.swing.JPasswordField" name="campoContrasenia">
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButtonVolver">
+    <Component class="javax.swing.JButton" name="btnVolver">
       <Properties>
         <Property name="text" type="java.lang.String" value="Volver"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVolverActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonGuardarDatos">
+    <Component class="javax.swing.JButton" name="btnGuardarDatos">
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar datos"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonGuardarDatosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarDatosActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
