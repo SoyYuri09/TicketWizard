@@ -8,6 +8,8 @@ import itson.ticketwizard.dtos.SolicitudRegistroUsuarioDTO;
 import itson.ticketwizard.entidades.DireccionUsuario;
 import itson.ticketwizard.entidades.Usuario;
 import itson.ticketwizard.persistencia.DireccionesUsuariosDAO;
+import itson.ticketwizard.persistencia.EventosDAO;
+import itson.ticketwizard.persistencia.ManejadorConexiones;
 import itson.ticketwizard.persistencia.UsuariosDAO;
 import itson.ticketwizard.presentacion.IngresoDatosInicioSesion;
 import itson.ticketwizard.presentacion.InicioSesionUsuario;
@@ -57,7 +59,8 @@ public class ControlIniciarSesion {
     }
   
     public void terminarInicioSesion(){
-        ControlCompra controlCompra = new ControlCompra();
+        EventosDAO eventosDAO = new EventosDAO(new ManejadorConexiones());
+        ControlCompra controlCompra = new ControlCompra(eventosDAO);
         controlCompra.iniciarCompra(formIngresoDatosInicioSesion);
     }
     

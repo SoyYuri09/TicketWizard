@@ -1,6 +1,6 @@
 package itson.ticketwizard.dtos;
 
-public class EventoDTO {
+public class DatosEventoDTO {
     private String nombre;
     private String fecha;
     private String hora;
@@ -12,7 +12,7 @@ public class EventoDTO {
     private String boletos;
     private String asistentes;
     
-    public EventoDTO(String nombre, String fecha, String hora, String lugar, String descripcion, String imagen, String categoria, String organizador, String boletos, String asistentes) {
+    public DatosEventoDTO(String nombre, String fecha, String hora, String lugar, String descripcion, String imagen, String categoria, String organizador, String boletos, String asistentes) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.hora = hora;

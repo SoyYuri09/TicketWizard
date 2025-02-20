@@ -23,5 +23,6 @@ public class Ticketwizard {
         
         ControlIniciarSesion control = new ControlIniciarSesion(usuariosDAO, direccionesUsuariosDAO);
         control.iniciarCasoUso();
+     
     }
 }
