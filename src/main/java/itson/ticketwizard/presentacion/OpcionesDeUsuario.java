@@ -53,8 +53,6 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
         campoBuscarEvento = new javax.swing.JTextField();
         etqBuscarEvento = new javax.swing.JLabel();
         etqNombreUsuario = new javax.swing.JLabel();
-        panelEvento = new javax.swing.JPanel();
-        btnEvento = new javax.swing.JButton();
         jScrollBar1 = new javax.swing.JScrollBar();
         scrollEventos = new javax.swing.JScrollPane();
         tablaListaEventos = new javax.swing.JTable();
@@ -145,25 +143,6 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
                     .addContainerGap(101, Short.MAX_VALUE)))
         );
 
-        panelEvento.setBackground(new java.awt.Color(51, 51, 51));
-
-        btnEvento.setText("jButton1");
-        btnEvento.setBackground(new java.awt.Color(102, 153, 255));
-        btnEvento.setForeground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout panelEventoLayout = new javax.swing.GroupLayout(panelEvento);
-        panelEvento.setLayout(panelEventoLayout);
-        panelEventoLayout.setHorizontalGroup(
-            panelEventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEventoLayout.createSequentialGroup()
-                .addGap(0, 994, Short.MAX_VALUE)
-                .addComponent(btnEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        panelEventoLayout.setVerticalGroup(
-            panelEventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnEvento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-        );
-
         jScrollBar1.setBackground(new java.awt.Color(204, 204, 204));
         jScrollBar1.setForeground(new java.awt.Color(51, 204, 255));
 
@@ -172,15 +151,13 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
 
         tablaListaEventos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Nombre", "Fecha", "Descripción", "Recinto", "Ciudad", "Estado"
+                "Nombre", "Fecha", "Descripción", "Recinto", "Ciudad", "Estado", "Selección"
             }
         ));
+        tablaListaEventos.setEnabled(false);
         scrollEventos.setViewportView(tablaListaEventos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,15 +166,9 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(panelEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(scrollEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 1037, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scrollEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 1037, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -206,12 +177,9 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
                 .addComponent(panelEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(scrollEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                        .addComponent(panelEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scrollEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -220,7 +188,6 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEvento;
     private javax.swing.JTextField campoBuscarEvento;
     private com.github.lgooddatepicker.components.DatePicker campoFechaFinal;
     private com.github.lgooddatepicker.components.DatePicker campoFechaInicial;
@@ -233,7 +200,6 @@ public class OpcionesDeUsuario extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JPanel panelEncabezado;
-    private javax.swing.JPanel panelEvento;
     private javax.swing.JScrollPane scrollEventos;
     private javax.swing.JTable tablaListaEventos;
     // End of variables declaration//GEN-END:variables
