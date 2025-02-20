@@ -23,6 +23,7 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
     private void initComponents() {
 
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
+        jMenu1 = new javax.swing.JMenu();
         panelEncabezado = new javax.swing.JPanel();
         etqLogo = new javax.swing.JLabel();
         campoFechaInicial = new com.github.lgooddatepicker.components.DatePicker();
@@ -37,7 +38,8 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
         btnEvento = new javax.swing.JButton();
         panelEvento2 = new javax.swing.JPanel();
         btnEvento1 = new javax.swing.JButton();
-        jScrollBar1 = new javax.swing.JScrollBar();
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TicketWizard");
@@ -46,28 +48,28 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
 
         etqLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTicketwizard.png"))); // NOI18N
 
+        etqTitulo.setText("Ticketwizard");
         etqTitulo.setBackground(new java.awt.Color(255, 255, 255));
         etqTitulo.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
         etqTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        etqTitulo.setText("Ticketwizard");
 
+        etqFechaInicial.setText("Fecha Inicial");
         etqFechaInicial.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         etqFechaInicial.setForeground(new java.awt.Color(255, 255, 255));
-        etqFechaInicial.setText("Fecha Inicial");
 
+        etqFechaFinal.setText("Fecha Final");
         etqFechaFinal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         etqFechaFinal.setForeground(new java.awt.Color(255, 255, 255));
-        etqFechaFinal.setText("Fecha Final");
 
         campoBuscarEvento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        etqBuscarEvento.setText("Buscar Evento");
         etqBuscarEvento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         etqBuscarEvento.setForeground(new java.awt.Color(255, 255, 255));
-        etqBuscarEvento.setText("Buscar Evento");
 
+        etqNombreUsuario.setText("Nombre de Usuario");
         etqNombreUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         etqNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        etqNombreUsuario.setText("Nombre de Usuario");
 
         javax.swing.GroupLayout panelEncabezadoLayout = new javax.swing.GroupLayout(panelEncabezado);
         panelEncabezado.setLayout(panelEncabezadoLayout);
@@ -127,9 +129,9 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
 
         panelEvento.setBackground(new java.awt.Color(51, 51, 51));
 
+        btnEvento.setText("jButton1");
         btnEvento.setBackground(new java.awt.Color(102, 153, 255));
         btnEvento.setForeground(new java.awt.Color(255, 255, 255));
-        btnEvento.setText("jButton1");
 
         javax.swing.GroupLayout panelEventoLayout = new javax.swing.GroupLayout(panelEvento);
         panelEvento.setLayout(panelEventoLayout);
@@ -146,9 +148,9 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
 
         panelEvento2.setBackground(new java.awt.Color(51, 51, 51));
 
+        btnEvento1.setText("jButton1");
         btnEvento1.setBackground(new java.awt.Color(102, 153, 255));
         btnEvento1.setForeground(new java.awt.Color(255, 255, 255));
-        btnEvento1.setText("jButton1");
 
         javax.swing.GroupLayout panelEvento2Layout = new javax.swing.GroupLayout(panelEvento2);
         panelEvento2.setLayout(panelEvento2Layout);
@@ -163,9 +165,6 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
             .addComponent(btnEvento1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
         );
 
-        jScrollBar1.setBackground(new java.awt.Color(204, 204, 204));
-        jScrollBar1.setForeground(new java.awt.Color(51, 204, 255));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -176,24 +175,17 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelEvento2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(panelEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addComponent(panelEvento2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(60, 60, 60)
+                .addComponent(panelEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(panelEvento2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 106, Short.MAX_VALUE))
         );
 
         pack();
@@ -214,7 +206,7 @@ public class DisponibilidadDeBoletos extends javax.swing.JFrame {
     private javax.swing.JLabel etqNombreUsuario;
     private javax.swing.JLabel etqTitulo;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JPanel panelEvento;
     private javax.swing.JPanel panelEvento2;
