@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class ManejadorConexiones {
     private final String cadenaConexion = "jdbc:mysql://localhost/ticketwizardDb";
     private final String usuario = "root";
-    private final String contraseña = "mroMSQL1147-";
+    private final String contraseña = "ItsonNainari_09";
     
     public Connection crearConexion() throws SQLException{
         //Se establece la conexión con el servidor de base de datos

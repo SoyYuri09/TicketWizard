@@ -12,6 +12,7 @@ import itson.ticketwizard.persistencia.UsuariosDAO;
 import itson.ticketwizard.presentacion.IngresoDatosInicioSesion;
 import itson.ticketwizard.presentacion.InicioSesionUsuario;
 import itson.ticketwizard.presentacion.IngresoDatosRegistro;
+import itson.ticketwizard.presentacion.OpcionesDeUsuario;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -20,6 +21,7 @@ public class ControlIniciarSesion {
     private InicioSesionUsuario pantallaInicioSesion;
     private IngresoDatosRegistro formIngresoDatosRegistro;
     private IngresoDatosInicioSesion formIngresoDatosInicioSesion;
+    private OpcionesDeUsuario formOpcionesDeUsuario;
     
     private UsuariosDAO usuariosDAO;
     private DireccionesUsuariosDAO direccionesUsuariosDAO;
@@ -48,10 +50,15 @@ public class ControlIniciarSesion {
     
     public void inciarSesion(IngresoUsuarioDTO ingresoUsuarioDTO){
         if(usuariosDAO.validarUsuarioContrasenia(ingresoUsuarioDTO) == true)
-            System.out.println("Mostrar pantalla");
+            this.terminarInicioSesion();
         else{
             formIngresoDatosInicioSesion.mostrarMensajeUsuarioContraseniaInvalido("Usuario y/o contraseña incorrectos", "Datos erróneos", 1);
         }
+    }
+  
+    public void terminarInicioSesion(){
+        ControlCompra controlCompra = new ControlCompra();
+        controlCompra.iniciarCompra(formIngresoDatosInicioSesion);
     }
     
     public void registrarUsuario(SolicitudRegistroUsuarioDTO solicitudRegistroUsuario){

@@ -1,14 +1,14 @@
 package itson.ticketwizard.presentacion;
-
+import itson.ticketwizard.control.ControlCompra;
 import itson.ticketwizard.control.ControlIniciarSesion;
 
 public class OpcionesDeUsuario extends javax.swing.JFrame {
 
-    private final ControlIniciarSesion control;
+    private final ControlCompra control;
     /**
      * Creates new form InicioSesionUsuario
      */
-    public OpcionesDeUsuario(ControlIniciarSesion control) {
+    public OpcionesDeUsuario(ControlCompra control) {
         initComponents();
         this.control = control;
     }
