@@ -281,11 +281,11 @@ public class ConfirmacionCompra extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(etqTituloConfirmacionCompra)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etqEventoTitulo)
                     .addComponent(etqNombreEvento))
                 .addGap(1, 1, 1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etqUbicacionTitulo)
                     .addComponent(etqUbicacionEvento))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -295,7 +295,7 @@ public class ConfirmacionCompra extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollPaneCompras, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etqPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(etqPrecioTotal1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -326,9 +326,9 @@ public class ConfirmacionCompra extends javax.swing.JFrame {
         Double saldo = usuarioSaldoDTO.getSaldo();
         
         if(saldo >= this.totalCompra){
-            this.control.comprarBoletos(codigosBoletosSeleccionados, codigoUsuario);
+            this.control.comprarBoletos(codigosBoletosSeleccionados, codigoUsuario, this);
         } else{
-            this.control.crearReserva(codigosBoletosSeleccionados, codigoUsuario);
+            this.control.crearReserva(codigosBoletosSeleccionados, codigoUsuario, this);
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 

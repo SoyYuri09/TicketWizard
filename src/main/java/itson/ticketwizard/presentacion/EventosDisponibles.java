@@ -299,18 +299,27 @@ public class EventosDisponibles extends javax.swing.JFrame {
 
         scrollEventos = new javax.swing.JScrollPane();
         tablaListaEventos = new javax.swing.JTable();
+        panelGeneral = new javax.swing.JPanel();
         panelEncabezado = new javax.swing.JPanel();
-        etqLogo = new javax.swing.JLabel();
         campoFechaInicial = new com.github.lgooddatepicker.components.DatePicker();
         campoFechaFinal = new com.github.lgooddatepicker.components.DatePicker();
-        etqTitulo = new javax.swing.JLabel();
         etqFechaInicial = new javax.swing.JLabel();
         etqFechaFinal = new javax.swing.JLabel();
         campoBuscarEvento = new javax.swing.JTextField();
         etqBuscarEvento = new javax.swing.JLabel();
-        etqNombreUsuario = new javax.swing.JLabel();
-        btnUsuario = new javax.swing.JButton();
-        panelGeneral = new javax.swing.JPanel();
+        menuUsuario = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu32 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        etqNombreUsuario = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
 
         scrollEventos.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scrollEventos.setEnabled(false);
@@ -339,14 +348,20 @@ public class EventosDisponibles extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TicketWizard");
 
-        panelEncabezado.setBackground(new java.awt.Color(0, 0, 153));
+        panelGeneral.setBackground(new java.awt.Color(255, 255, 255));
 
-        etqLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTicketwizard.png"))); // NOI18N
+        javax.swing.GroupLayout panelGeneralLayout = new javax.swing.GroupLayout(panelGeneral);
+        panelGeneral.setLayout(panelGeneralLayout);
+        panelGeneralLayout.setHorizontalGroup(
+            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1181, Short.MAX_VALUE)
+        );
+        panelGeneralLayout.setVerticalGroup(
+            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 612, Short.MAX_VALUE)
+        );
 
-        etqTitulo.setText("Ticketwizard");
-        etqTitulo.setBackground(new java.awt.Color(255, 255, 255));
-        etqTitulo.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
-        etqTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        panelEncabezado.setBackground(new java.awt.Color(90, 137, 255));
 
         etqFechaInicial.setText("Fecha Inicial");
         etqFechaInicial.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -362,66 +377,29 @@ public class EventosDisponibles extends javax.swing.JFrame {
         etqBuscarEvento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         etqBuscarEvento.setForeground(new java.awt.Color(255, 255, 255));
 
-        etqNombreUsuario.setText("Nombre de usuario");
-        etqNombreUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        etqNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
-
-        btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/usuario.png"))); // NOI18N
-        btnUsuario.setBackground(new java.awt.Color(245, 245, 245));
-        btnUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        btnUsuario.setToolTipText("");
-        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsuarioActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panelEncabezadoLayout = new javax.swing.GroupLayout(panelEncabezado);
         panelEncabezado.setLayout(panelEncabezadoLayout);
         panelEncabezadoLayout.setHorizontalGroup(
             panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEncabezadoLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelEncabezadoLayout.createSequentialGroup()
-                        .addComponent(etqFechaInicial)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(etqFechaFinal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(etqBuscarEvento)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoBuscarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelEncabezadoLayout.createSequentialGroup()
-                        .addComponent(etqLogo)
-                        .addGap(656, 656, 656)
-                        .addComponent(etqNombreUsuario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnUsuario)
-                        .addGap(133, 133, 133))))
-            .addGroup(panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelEncabezadoLayout.createSequentialGroup()
-                    .addGap(114, 114, 114)
-                    .addComponent(etqTitulo)
-                    .addContainerGap(833, Short.MAX_VALUE)))
+                .addGap(58, 58, 58)
+                .addComponent(etqFechaInicial)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(etqFechaFinal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(etqBuscarEvento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoBuscarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         panelEncabezadoLayout.setVerticalGroup(
             panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEncabezadoLayout.createSequentialGroup()
-                .addGroup(panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelEncabezadoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etqLogo)
-                            .addComponent(btnUsuario, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(panelEncabezadoLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(etqNombreUsuario)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campoFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -429,62 +407,128 @@ public class EventosDisponibles extends javax.swing.JFrame {
                     .addComponent(etqFechaFinal)
                     .addComponent(campoBuscarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(etqBuscarEvento))
-                .addGap(37, 37, 37))
-            .addGroup(panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelEncabezadoLayout.createSequentialGroup()
-                    .addGap(37, 37, 37)
-                    .addComponent(etqTitulo)
-                    .addContainerGap(101, Short.MAX_VALUE)))
+                .addGap(6, 6, 6))
         );
 
-        panelGeneral.setBackground(new java.awt.Color(255, 255, 255));
+        menuUsuario.setBackground(new java.awt.Color(90, 137, 255));
 
-        javax.swing.GroupLayout panelGeneralLayout = new javax.swing.GroupLayout(panelGeneral);
-        panelGeneral.setLayout(panelGeneralLayout);
-        panelGeneralLayout.setHorizontalGroup(
-            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelGeneralLayout.setVerticalGroup(
-            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 612, Short.MAX_VALUE)
-        );
+        jMenu3.setBackground(new java.awt.Color(90, 137, 255));
+        jMenu3.setMaximumSize(new java.awt.Dimension(30, 32767));
+        menuUsuario.add(jMenu3);
+
+        jMenu32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTicketwizard.png"))); // NOI18N
+        jMenu32.setBackground(new java.awt.Color(90, 137, 255));
+        jMenu32.setBorderPainted(false);
+        jMenu32.setContentAreaFilled(false);
+        jMenu32.setFocusable(false);
+        jMenu32.setForeground(new java.awt.Color(90, 137, 255));
+        jMenu32.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jMenu32.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jMenu32.setMargin(new java.awt.Insets(3, 6, 3, 100));
+        jMenu32.setMaximumSize(new java.awt.Dimension(95, 300));
+        jMenu32.setRequestFocusEnabled(false);
+        jMenu32.setRolloverEnabled(false);
+        jMenu32.setVerifyInputWhenFocusTarget(false);
+        menuUsuario.add(jMenu32);
+
+        jMenu2.setText("Ticketwizard");
+        jMenu2.setBackground(new java.awt.Color(90, 137, 255));
+        jMenu2.setBorderPainted(false);
+        jMenu2.setContentAreaFilled(false);
+        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jMenu2.setFocusable(false);
+        jMenu2.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
+        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu2.setMaximumSize(new java.awt.Dimension(1100, 1000));
+        jMenu2.setRequestFocusEnabled(false);
+        jMenu2.setRolloverEnabled(false);
+        jMenu2.setVerifyInputWhenFocusTarget(false);
+        menuUsuario.add(jMenu2);
+
+        etqNombreUsuario.setText("Nombre de usuario");
+        etqNombreUsuario.setBackground(new java.awt.Color(90, 137, 255));
+        etqNombreUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        etqNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        etqNombreUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        etqNombreUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        etqNombreUsuario.setMaximumSize(new java.awt.Dimension(320, 32767));
+        etqNombreUsuario.setVerifyInputWhenFocusTarget(false);
+        menuUsuario.add(etqNombreUsuario);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoUsuario.png"))); // NOI18N
+        jMenu1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoPerfil.png"))); // NOI18N
+        jMenuItem2.setText("Mi perfil");
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTickets.png"))); // NOI18N
+        jMenuItem3.setText("Mis boletos");
+        jMenu1.add(jMenuItem3);
+
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCartera.png"))); // NOI18N
+        jMenuItem4.setText("Cargar saldo");
+        jMenu1.add(jMenuItem4);
+
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoMovimientos.png"))); // NOI18N
+        jMenuItem5.setText("Consultar movimientos");
+        jMenu1.add(jMenuItem5);
+        jMenu1.add(jSeparator1);
+
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCerrarSesion.png"))); // NOI18N
+        jMenuItem6.setText("Cerrar sesión");
+        jMenu1.add(jMenuItem6);
+
+        menuUsuario.add(jMenu1);
+
+        jMenu4.setBackground(new java.awt.Color(90, 137, 255));
+        jMenu4.setMaximumSize(new java.awt.Dimension(30, 32767));
+        menuUsuario.add(jMenu4);
+
+        setJMenuBar(menuUsuario);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUsuarioActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnUsuario;
     private javax.swing.JTextField campoBuscarEvento;
     private com.github.lgooddatepicker.components.DatePicker campoFechaFinal;
     private com.github.lgooddatepicker.components.DatePicker campoFechaInicial;
     private javax.swing.JLabel etqBuscarEvento;
     private javax.swing.JLabel etqFechaFinal;
     private javax.swing.JLabel etqFechaInicial;
-    private javax.swing.JLabel etqLogo;
-    private javax.swing.JLabel etqNombreUsuario;
-    private javax.swing.JLabel etqTitulo;
+    private javax.swing.JMenu etqNombreUsuario;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu32;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JMenuBar menuUsuario;
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JPanel panelGeneral;
     private javax.swing.JScrollPane scrollEventos;

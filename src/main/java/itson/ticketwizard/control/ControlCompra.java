@@ -4,6 +4,7 @@ import itson.ticketwizard.dtos.BoletoElegidoDTO;
 import itson.ticketwizard.dtos.CompraReservaUsuarioTransaccionDTO;
 import itson.ticketwizard.dtos.EventoDisponibilidadBoletoDTO;
 import itson.ticketwizard.dtos.EventoMostrarListaDTO;
+import itson.ticketwizard.dtos.MontoTotalSaldoFinCompraDTO;
 import itson.ticketwizard.dtos.NombreCorreoUsuarioDTO;
 import itson.ticketwizard.dtos.UsuarioEventoElegidoDTO;
 import itson.ticketwizard.dtos.UsuarioSaldoDTO;
@@ -16,6 +17,9 @@ import itson.ticketwizard.persistencia.EventosDAO;
 import itson.ticketwizard.persistencia.ReservasDAO;
 import itson.ticketwizard.persistencia.TransaccionesDAO;
 import itson.ticketwizard.persistencia.UsuariosDAO;
+import itson.ticketwizard.presentacion.CargarSaldo;
+import itson.ticketwizard.presentacion.CompraExitosa;
+import itson.ticketwizard.presentacion.CompraSaldoInsuficiente;
 import itson.ticketwizard.presentacion.ConfirmacionCompra;
 import itson.ticketwizard.presentacion.DisponibilidadBoletos;
 import itson.ticketwizard.presentacion.EventosDisponibles;
@@ -34,7 +38,10 @@ public class ControlCompra {
     private DisponibilidadBoletos disponibilidadDeBoletos;
     private ConfirmacionCompra confirmacionCompra;
     private NombreCorreoUsuarioDTO nombreCorreoUsuarioDTO;
-
+    private CompraExitosa compraExitosa;
+    private CompraSaldoInsuficiente compraSaldoInsuficiente;
+    private CargarSaldo cargarSaldo;
+    
     private UsuariosDAO usuariosDAO;
     private EventosDAO eventosDAO;
     private BoletosDAO boletosDAO;
@@ -131,7 +138,8 @@ public class ControlCompra {
         return listaBoletosElegidosDTO;
     }
     
-    public void comprarBoletos(LinkedList<Integer> codigosBoletosSeleccionados, Integer codigoUsuarioComprador){
+    public void comprarBoletos(LinkedList<Integer> codigosBoletosSeleccionados, Integer codigoUsuarioComprador, JFrame frameAnterior){
+        Double montoTotal = 0d;
         for(Integer codigoBoleto: codigosBoletosSeleccionados){
             Transaccion transaccion = transaccionesDAO.obtenerVentasVigentesBoleto(codigoBoleto);
             
@@ -139,19 +147,45 @@ public class ControlCompra {
                 CompraReservaUsuarioTransaccionDTO compraReservaUsuarioTransaccionDTO = 
                         new CompraReservaUsuarioTransaccionDTO(codigoUsuarioComprador, transaccion.getCodigo());
                 transaccionesDAO.concretarTransaccion(compraReservaUsuarioTransaccionDTO);
+                montoTotal += transaccion.getPrecioVenta();
             }
         }
+        Double saldo = usuariosDAO.obtenerSaldo(codigoUsuarioComprador);
+        MontoTotalSaldoFinCompraDTO montoTotalSaldoFinCompraDTO = new MontoTotalSaldoFinCompraDTO(montoTotal, saldo);
+        this.mostrarCompraExitosa(frameAnterior, montoTotalSaldoFinCompraDTO);
     }
     
-    public void crearReserva(LinkedList<Integer> codigosBoletosSeleccionados, Integer codigoUsuarioComprador){
+    public void crearReserva(LinkedList<Integer> codigosBoletosSeleccionados, Integer codigoUsuarioComprador, JFrame frameAnterior){
+        Double montoTotal = 0d;
         for(Integer codigoBoleto: codigosBoletosSeleccionados){
             Transaccion transaccion = transaccionesDAO.obtenerVentasVigentesBoleto(codigoBoleto);
             if(transaccion != null){
                 CompraReservaUsuarioTransaccionDTO compraReservaUsuarioTransaccionDTO = 
                         new CompraReservaUsuarioTransaccionDTO(codigoUsuarioComprador, transaccion.getCodigo());
                 reservasDAO.registrar(compraReservaUsuarioTransaccionDTO);
+                montoTotal += transaccion.getPrecioVenta();
             }
         }
+        Double saldo = usuariosDAO.obtenerSaldo(codigoUsuarioComprador);
+        MontoTotalSaldoFinCompraDTO montoTotalSaldoFinCompraDTO = new MontoTotalSaldoFinCompraDTO(montoTotal, saldo);
+        this.mostrarSaldoInsuficiente(frameAnterior, montoTotalSaldoFinCompraDTO);
+    }
+    
+    public void mostrarCompraExitosa(JFrame frameAnterior, MontoTotalSaldoFinCompraDTO montoTotalSaldoFinCompraDTO){
+        compraExitosa = new CompraExitosa(this, montoTotalSaldoFinCompraDTO);
+        frameAnterior.dispose();
+        compraExitosa.setVisible(true);
+    }
+    
+    public void mostrarSaldoInsuficiente(JFrame frameAnterior, MontoTotalSaldoFinCompraDTO montoTotalSaldoFinCompraDTO){
+        compraSaldoInsuficiente = new CompraSaldoInsuficiente(this, montoTotalSaldoFinCompraDTO);
+        frameAnterior.dispose();
+        compraSaldoInsuficiente.setVisible(true);
     }
 
+    public void iniciarCargoSaldo(JFrame frameAnterior, Double saldo){
+        cargarSaldo = new CargarSaldo(this, saldo);
+        frameAnterior.dispose();
+        cargarSaldo.setVisible(true);
+    }
 }

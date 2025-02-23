@@ -31,7 +31,8 @@ public class TransaccionesDAO {
                             	numeroSerieBoleto, 
                             	codigoBoleto, 
                             	codigoUsuarioRevendedor,
-                            	codigoUsuarioComprador
+                            	codigoUsuarioComprador,
+                                precioVenta
                             FROM Transacciones AS ta
                             WHERE codigoBoleto = ? AND
                             (codigoUsuarioComprador IS NULL OR EXISTS 
@@ -55,9 +56,10 @@ public class TransaccionesDAO {
                 Integer codigoBoleto = resultadosConsultaTransacciones.getInt("codigoBoleto");
                 Integer codigoUsuarioRevendedor = resultadosConsultaTransacciones.getInt("codigoUsuarioRevendedor");
                 Integer codigoUsuarioComprador = resultadosConsultaTransacciones.getInt("codigoUsuarioComprador");
+                Double precioVenta = resultadosConsultaTransacciones.getDouble("precioVenta");
                 
                 transaccion = new Transaccion(codigo, fechaLimite, fechaHora, numeroSerieBoleto, codigoBoleto, 
-                        codigoUsuarioRevendedor, codigoUsuarioComprador);
+                        codigoUsuarioRevendedor, codigoUsuarioComprador, precioVenta);
             }
 
         } catch(SQLException ex){

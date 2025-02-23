@@ -295,4 +295,35 @@ public class UsuariosDAO {
 
         return apellidoMaterno;
     }
+    
+    public Double obtenerSaldo(Integer codigo){
+        String codigoSQL = """
+                           SELECT saldo
+                           FROM Usuarios
+                           WHERE codigo = ?
+                           """;
+        
+        Double saldo = null;
+        try(
+            Connection conexion = manejadorConexiones.crearConexion();
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+
+        ){
+            comando.setInt(1, codigo);
+            
+            try(
+                ResultSet resultados = comando.executeQuery();
+            ){
+                while(resultados.next()){
+                    saldo = resultados.getDouble("saldo");       
+                }
+            }
+  
+        } catch (SQLException e){
+            System.err.println(e.getMessage());
+            System.out.println(e.getErrorCode());
+        }
+
+        return saldo;
+    }
 }
