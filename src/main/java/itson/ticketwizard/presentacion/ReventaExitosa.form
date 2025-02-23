@@ -113,31 +113,31 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="etqNombreUsuario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnUsuario" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="etqNombreUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="etqTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="etqNombreUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="etqTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnUsuario" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="etqLogo" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -152,6 +152,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="etqTitulo">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Ticketwizard"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
@@ -161,48 +162,34 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ticketwizard"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="etqNombreUsuario">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Nombre de Usuario"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nombre de Usuario"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnUsuario">
+            <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="null" type="code"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/logoUsuario.png"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUsuarioActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton()"/>
-              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JLabel" name="etqCargoSaldoCompraExitosa">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Boleto en venta"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Boleto en venta"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="etqLogoExito">
@@ -294,103 +281,103 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="etqDescripcion1">
               <Properties>
+                <Property name="text" type="java.lang.String" value="El boleto de la Fila:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="El boleto de la Fila:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="etqFilaBD">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Fila"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Fila"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="etqDescripcion2">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Asiento:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Asiento:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="etqAsientoBD">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Asiento"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Asiento"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="etqDescripcion3">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Fue puesto en "/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Fue puesto en "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="etqDescripcion4">
               <Properties>
+                <Property name="text" type="java.lang.String" value="venta a un precio de:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="venta a un precio de:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="etqPrecioBD">
               <Properties>
+                <Property name="text" type="java.lang.String" value="$Precio"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="$Precio"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="etqDescripcion5">
               <Properties>
+                <Property name="text" type="java.lang.String" value="pesos"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="pesos"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="etqDescipcion6">
               <Properties>
+                <Property name="text" type="java.lang.String" value="del:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="del:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="etqDescripcion7">
               <Properties>
+                <Property name="text" type="java.lang.String" value="MXN, con fecha l&#xed;mite"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="MXN, con fecha l&#xed;mite"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="etqFechaLimite">
               <Properties>
+                <Property name="text" type="java.lang.String" value="FechaLimite"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="FechaLimite"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="btnConsultarBoletos">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Consultar boletos"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="df" red="c0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Consultar boletos"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarBoletosActionPerformed"/>
@@ -398,13 +385,13 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnVolverInicio">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Volver al inicio"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="df" red="c0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Volver al inicio"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverInicioActionPerformed"/>

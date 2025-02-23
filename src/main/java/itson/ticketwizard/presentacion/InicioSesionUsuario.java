@@ -2,6 +2,15 @@
 package itson.ticketwizard.presentacion;
 
 import itson.ticketwizard.control.ControlIniciarSesion;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.LayoutManager;
+import java.awt.RenderingHints;
+import java.awt.Toolkit;
+import javax.swing.JPanel;
 
 /**
  * @author García López, Yuri Germán - ID: 00000252583
@@ -15,6 +24,10 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
 
     public InicioSesionUsuario(ControlIniciarSesion control) {
         initComponents();
+        setIconImage(iconoPropio);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setTitle("TicketWizard");
         this.control = control;
     }
 
@@ -22,7 +35,7 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelSeleccion = new javax.swing.JPanel();
+        panelSeleccion = new RoundedPanel(50, new Color(255,255,255));
         tituloSeleccion = new javax.swing.JLabel();
         jButtonIniciarSesion = new javax.swing.JButton();
         jButtonRegistrarse = new javax.swing.JButton();
@@ -31,10 +44,11 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
         labelLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(239, 239, 239));
 
-        panelSeleccion.setBackground(new java.awt.Color(255, 255, 255));
+        panelSeleccion.setBackground(null);
 
-        tituloSeleccion.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        tituloSeleccion.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         tituloSeleccion.setText("Bienvenido a Ticketwizard");
 
         jButtonIniciarSesion.setBackground(new java.awt.Color(255, 153, 153));
@@ -83,7 +97,7 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        panelEncabezado.setBackground(new java.awt.Color(0, 0, 153));
+        panelEncabezado.setBackground(new java.awt.Color(90, 137, 255));
 
         labelTitulo.setBackground(new java.awt.Color(255, 255, 255));
         labelTitulo.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
@@ -99,21 +113,20 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
             .addGroup(panelEncabezadoLayout.createSequentialGroup()
                 .addGap(251, 251, 251)
                 .addComponent(labelLogo)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelTitulo)
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelEncabezadoLayout.setVerticalGroup(
             panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEncabezadoLayout.createSequentialGroup()
-                .addGroup(panelEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelEncabezadoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(labelLogo))
-                    .addGroup(panelEncabezadoLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(labelTitulo)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(labelLogo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEncabezadoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelTitulo)
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -122,9 +135,9 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(208, Short.MAX_VALUE)
                 .addComponent(panelSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(191, 191, 191))
+                .addGap(208, 208, 208))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +145,7 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
                 .addComponent(panelEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(panelSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         pack();
@@ -157,4 +170,49 @@ public class InicioSesionUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel panelSeleccion;
     private javax.swing.JLabel tituloSeleccion;
     // End of variables declaration//GEN-END:variables
+
+    class RoundedPanel extends JPanel{
+        private Color backgroundColor;
+        private int cornerRadius = 15;
+        public RoundedPanel(LayoutManager layout, int radius) {
+            super(layout);
+            cornerRadius = radius;
+        }
+        public RoundedPanel(LayoutManager layout, int radius, Color bgColor) {
+            super(layout);
+            cornerRadius = radius;
+            backgroundColor = bgColor;
+        }
+        public RoundedPanel(int radius) {
+            super();
+            cornerRadius = radius;
+            
+        }
+        public RoundedPanel(int radius, Color bgColor) {
+            super();
+            cornerRadius = radius;
+            backgroundColor = bgColor;
+        }
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Dimension arcs = new Dimension(cornerRadius, cornerRadius);
+            int width = getWidth();
+            int height = getHeight();
+            Graphics2D graphics = (Graphics2D) g;
+            graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            //Draws the rounded panel with borders.
+            if (backgroundColor != null) {
+                graphics.setColor(backgroundColor);
+            } else {
+                graphics.setColor(getBackground());
+            }
+            graphics.fillRoundRect(0, 0, width-1, height-1, arcs.width, arcs.height); //paint background
+            graphics.setColor(getForeground());
+
+        }
+    }
+    
+    Image iconoPropio = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logoTicketwizard.png")).getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+
 }

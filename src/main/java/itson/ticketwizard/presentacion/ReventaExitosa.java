@@ -37,7 +37,7 @@ public class ReventaExitosa extends javax.swing.JFrame {
         etqLogo = new javax.swing.JLabel();
         etqTitulo = new javax.swing.JLabel();
         etqNombreUsuario = new javax.swing.JLabel();
-        btnUsuario = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         etqCargoSaldoCompraExitosa = new javax.swing.JLabel();
         etqLogoExito = new javax.swing.JLabel();
         pnlCargoSaldoCompraExitosa = new RoundedPanel(50, new Color(255,255,255));
@@ -63,24 +63,16 @@ public class ReventaExitosa extends javax.swing.JFrame {
 
         etqLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTicketwizard.png"))); // NOI18N
 
+        etqTitulo.setText("Ticketwizard");
         etqTitulo.setBackground(new java.awt.Color(255, 255, 255));
         etqTitulo.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
         etqTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        etqTitulo.setText("Ticketwizard");
 
+        etqNombreUsuario.setText("Nombre de Usuario");
         etqNombreUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         etqNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        etqNombreUsuario.setText("Nombre de Usuario");
 
-        btnUsuario.setBackground(null);
-        btnUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoUsuario.png"))); // NOI18N
-        btnUsuario.setToolTipText("");
-        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsuarioActionPerformed(evt);
-            }
-        });
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoUsuario.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlEncabezadoLayout = new javax.swing.GroupLayout(pnlEncabezado);
         pnlEncabezado.setLayout(pnlEncabezadoLayout);
@@ -94,65 +86,65 @@ public class ReventaExitosa extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(etqNombreUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUsuario)
-                .addGap(24, 24, 24))
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18))
         );
         pnlEncabezadoLayout.setVerticalGroup(
             pnlEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEncabezadoLayout.createSequentialGroup()
-                .addGroup(pnlEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlEncabezadoLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(pnlEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(etqNombreUsuario)
-                            .addComponent(etqTitulo)))
-                    .addGroup(pnlEncabezadoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnlEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnUsuario)
+                .addGroup(pnlEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addGroup(pnlEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlEncabezadoLayout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addGroup(pnlEncabezadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(etqNombreUsuario)
+                                .addComponent(etqTitulo)))
+                        .addGroup(pnlEncabezadoLayout.createSequentialGroup()
+                            .addContainerGap()
                             .addComponent(etqLogo))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        etqCargoSaldoCompraExitosa.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         etqCargoSaldoCompraExitosa.setText("Boleto en venta");
+        etqCargoSaldoCompraExitosa.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
 
         etqLogoExito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCompraExitosa.png"))); // NOI18N
 
         pnlCargoSaldoCompraExitosa.setBackground(null);
 
-        etqDescripcion1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqDescripcion1.setText("El boleto de la Fila:");
+        etqDescripcion1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        etqFilaBD.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqFilaBD.setText("Fila");
+        etqFilaBD.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        etqDescripcion2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqDescripcion2.setText("Asiento:");
+        etqDescripcion2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        etqAsientoBD.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqAsientoBD.setText("Asiento");
+        etqAsientoBD.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        etqDescripcion3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqDescripcion3.setText("Fue puesto en ");
+        etqDescripcion3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        etqDescripcion4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqDescripcion4.setText("venta a un precio de:");
+        etqDescripcion4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        etqPrecioBD.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqPrecioBD.setText("$Precio");
+        etqPrecioBD.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        etqDescripcion5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqDescripcion5.setText("pesos");
+        etqDescripcion5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        etqDescipcion6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqDescipcion6.setText("del:");
+        etqDescipcion6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        etqDescripcion7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqDescripcion7.setText("MXN, con fecha límite");
+        etqDescripcion7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        etqFechaLimite.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqFechaLimite.setText("FechaLimite");
+        etqFechaLimite.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout pnlCargoSaldoCompraExitosaLayout = new javax.swing.GroupLayout(pnlCargoSaldoCompraExitosa);
         pnlCargoSaldoCompraExitosa.setLayout(pnlCargoSaldoCompraExitosaLayout);
@@ -211,18 +203,18 @@ public class ReventaExitosa extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
+        btnConsultarBoletos.setText("Consultar boletos");
         btnConsultarBoletos.setBackground(new java.awt.Color(192, 223, 255));
         btnConsultarBoletos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnConsultarBoletos.setText("Consultar boletos");
         btnConsultarBoletos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultarBoletosActionPerformed(evt);
             }
         });
 
+        btnVolverInicio.setText("Volver al inicio");
         btnVolverInicio.setBackground(new java.awt.Color(192, 223, 255));
         btnVolverInicio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnVolverInicio.setText("Volver al inicio");
         btnVolverInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverInicioActionPerformed(evt);
@@ -294,13 +286,8 @@ public class ReventaExitosa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverInicioActionPerformed
 
-    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUsuarioActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultarBoletos;
-    private javax.swing.JButton btnUsuario;
     private javax.swing.JButton btnVolverInicio;
     private javax.swing.JLabel etqAsientoBD;
     private javax.swing.JLabel etqCargoSaldoCompraExitosa;
@@ -318,6 +305,7 @@ public class ReventaExitosa extends javax.swing.JFrame {
     private javax.swing.JLabel etqNombreUsuario;
     private javax.swing.JLabel etqPrecioBD;
     private javax.swing.JLabel etqTitulo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel pnlCargoSaldoCompraExitosa;
     private javax.swing.JPanel pnlEncabezado;
     private javax.swing.JPanel pnlPrincipal;
