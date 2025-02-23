@@ -1,5 +1,6 @@
 package itson.ticketwizard.persistencia;
 
+import itson.ticketwizard.dtos.UsuarioEventoElegidoDTO;
 import itson.ticketwizard.entidades.Boleto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,35 +29,94 @@ public class BoletosDAO {
     Considerando que existe la sigueinte vista boletos_en_venta:
     
     CREATE VIEW boletos_en_venta AS
-    SELECT bo.codigo, bo.numeroSerie, bo.fila, bo.asiento, bo.codigoEvento FROM Boletos AS bo
+    SELECT bo.codigo, bo.numeroSerie, bo.fila, bo.asiento, bo.precio, bo.codigoEvento FROM Boletos AS bo
     INNER JOIN Transacciones AS ta ON ta.codigoBoleto = bo.codigo
     WHERE ta.codigoUsuarioComprador IS NULL OR ta.codigo IN(
         SELECT re.codigoTransaccion FROM Reservas AS re
         WHERE re.fecha_hora_limite <= NOW());
     */
     
-    public List<Boleto> listarBoletos(Integer codigoEventoP){
+    public Boleto obtenerBoleto(Integer codigoBoleto){
         String codigoSQL = """
-                            SELECT bo_ven.codigo, bo_ven.numeroSerie, bo_ven.fila, bo_ven.asiento, bo_ven.codigoEvento
-                            FROM boletos_en_venta AS bo_ven
-                            WHERE bo_ven.codigoEvento = ?;
+                           SELECT codigo,
+                           	numeroSerie,
+                           	fila, 
+                           	asiento,
+                                precio,
+                           	codigoEvento
+                           FROM Boletos
+                           WHERE codigo = ?;
+                           """;
+        
+        Boleto boleto = null;
+        
+        try{
+            
+            Connection conexion = this.manejadorConexiones.crearConexion();
+            
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            comando.setInt(1, codigoBoleto);
+            
+            ResultSet resultadosConsultaBoleto = comando.executeQuery();
+            
+            while(resultadosConsultaBoleto.next()){
+                Integer codigo = resultadosConsultaBoleto.getInt("codigo");
+                String numeroSerie = resultadosConsultaBoleto.getString("numeroSerie");
+                String fila = resultadosConsultaBoleto.getString("fila");
+                Integer asiento = resultadosConsultaBoleto.getInt("asiento");
+                Double precio = resultadosConsultaBoleto.getDouble("precio");
+                Integer codigoEvento = resultadosConsultaBoleto.getInt("codigoEvento");
+                
+                boleto = new Boleto(codigo, numeroSerie, fila, asiento, precio, codigoEvento);
+  
+            }
+        } catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return boleto;
+    }
+    
+    
+    
+    
+    
+    public List<Boleto> listarBoletos(UsuarioEventoElegidoDTO usuarioEventoElegidoDTO){
+        String codigoSQL = """
+                            SELECT
+                            	bo.codigo,
+                                bo.numeroSerie,
+                                bo.fila, 
+                                bo.asiento,
+                                bo.precio,
+                                bo.codigoEvento
+                            FROM Boletos AS bo
+                            WHERE bo.codigoEvento = ? AND bo.codigo IN(
+                            	SELECT ta.codigoBoleto 
+                                FROM Transacciones AS ta
+                                LEFT JOIN Reservas AS re ON ta.codigo = re.codigoTransaccion
+                                WHERE (ta.codigoUsuarioRevendedor IS NULL OR ta.codigoUsuarioRevendedor != ?)
+                                AND ta.codigoUsuarioComprador IS NULL AND (re.fechaHoraLimite IS NULL OR re.fechaHoraLimite <= NOW())
+                            ) ORDER BY bo.fila ASC, bo.asiento ASC;
                         """;
 
         List<Boleto> listaBoletos = new LinkedList<>();
         try {
             Connection conexion = this.manejadorConexiones.crearConexion();
             PreparedStatement comando = conexion.prepareStatement(codigoSQL);
-            comando.setInt(1, codigoEventoP);
-            ResultSet resultadosConsultaEventos = comando.executeQuery();
+            comando.setInt(1, usuarioEventoElegidoDTO.getCodigoEvento());
+            comando.setInt(2, usuarioEventoElegidoDTO.getCodigoUsuario());
             
-            while(resultadosConsultaEventos.next()){ 
-                String codigo = resultadosConsultaEventos.getString("codigo");
-                String numeroSerie = resultadosConsultaEventos.getString("numeroSerie");
-                String fila = resultadosConsultaEventos.getString("fila");
-                Integer asiento = resultadosConsultaEventos.getInt("asiento");
-                Integer codigoEvento = resultadosConsultaEventos.getInt("codigoEvento");
+            ResultSet resultadosConsultaBoletos = comando.executeQuery();
+            
+            while(resultadosConsultaBoletos.next()){ 
+                Integer codigo = resultadosConsultaBoletos.getInt("codigo");
+                String numeroSerie = resultadosConsultaBoletos.getString("numeroSerie");
+                String fila = resultadosConsultaBoletos.getString("fila");
+                Integer asiento = resultadosConsultaBoletos.getInt("asiento");
+                Double precio = resultadosConsultaBoletos.getDouble("precio");
+                Integer codigoEvento = resultadosConsultaBoletos.getInt("codigoEvento");
                 
-                Boleto boleto = new Boleto(codigo, numeroSerie, fila, asiento, codigoEvento);
+                Boleto boleto = new Boleto(codigo, numeroSerie, fila, asiento, precio, codigoEvento);
                 listaBoletos.add(boleto);
             }
 
@@ -66,33 +126,43 @@ public class BoletosDAO {
         return listaBoletos; 
     }
     
-    public List<Boleto> listarBoletosReventa(Integer codigoEventoP){
+    public List<Boleto> listarBoletosReventa(UsuarioEventoElegidoDTO usuarioEventoElegidoDTO){
         
         String codigoSQL = """
-                        SELECT  bo_ven.codigo, bo_ven.numeroSerie, bo_ven.fila, bo_ven.asiento, bo_ven.codigoEvento
-                        FROM boletos_en_venta AS bo_ven
-                        WHERE bo_ven.codigoEvento = ? AND bo_ven.codigo IN (
-                            SELECT ta.codigoBoleto
+                        SELECT
+                            bo.codigo,
+                            bo.numeroSerie,
+                            bo.fila, 
+                            bo.asiento,
+                            bo.precio,
+                            bo.codigoEvento
+                        FROM Boletos AS bo
+                        WHERE bo.codigoEvento = ? AND bo.codigo IN(
+                        	SELECT ta.codigoBoleto 
                             FROM Transacciones AS ta
-                            WHERE ta.codigoUsuarioRevendedor IS NOT NULL
-                        );   
+                            LEFT JOIN Reservas AS re ON ta.codigo = re.codigoTransaccion
+                            WHERE ta.codigoUsuarioRevendedor IS NOT NULL AND ta.codigoUsuarioRevendedor != ?
+                            AND ta.codigoUsuarioComprador IS NULL AND (re.fechaHoraLimite IS NULL OR re.fechaHoraLimite <= NOW())
+                        ) ORDER BY bo.fila ASC, bo.asiento ASC;
         """;
 
         List<Boleto> listaBoletos = new LinkedList<>();
         try {
             Connection conexion = this.manejadorConexiones.crearConexion();
             PreparedStatement comando = conexion.prepareStatement(codigoSQL);
-            comando.setInt(1, codigoEventoP);
-            ResultSet resultadosConsultaEventos = comando.executeQuery();
+            comando.setInt(1, usuarioEventoElegidoDTO.getCodigoEvento());
+            comando.setInt(2, usuarioEventoElegidoDTO.getCodigoUsuario());
+            ResultSet resultadosConsultaBoletos = comando.executeQuery();
             
-            while(resultadosConsultaEventos.next()){ 
-                String codigo = resultadosConsultaEventos.getString("codigo");
-                String numeroSerie = resultadosConsultaEventos.getString("numeroSerie");
-                String fila = resultadosConsultaEventos.getString("fila");
-                Integer asiento = resultadosConsultaEventos.getInt("asiento");
-                Integer codigoEvento = resultadosConsultaEventos.getInt("codigoEvento");
+            while(resultadosConsultaBoletos.next()){ 
+                Integer codigo = resultadosConsultaBoletos.getInt("codigo");
+                String numeroSerie = resultadosConsultaBoletos.getString("numeroSerie");
+                String fila = resultadosConsultaBoletos.getString("fila");
+                Integer asiento = resultadosConsultaBoletos.getInt("asiento");
+                Double precio = resultadosConsultaBoletos.getDouble("precio");
+                Integer codigoEvento = resultadosConsultaBoletos.getInt("codigoEvento");
                 
-                Boleto boleto = new Boleto(codigo, numeroSerie, fila, asiento, codigoEvento);
+                Boleto boleto = new Boleto(codigo, numeroSerie, fila, asiento, precio, codigoEvento);
                 listaBoletos.add(boleto);
             }
             
@@ -103,15 +173,22 @@ public class BoletosDAO {
     }
     
     public List<Boleto> listarBoletosBoletera(Integer codigoEventoP){
-        
+
         String codigoSQL = """
-                        SELECT  bo_ven.codigo, bo_ven.numeroSerie, bo_ven.fila, bo_ven.asiento, bo_ven.codigoEvento
-                        FROM boletos_en_venta AS bo_ven
-                        WHERE bo_ven.codigoEvento = ? AND bo_ven.codigo IN (
-                            SELECT ta.codigoBoleto
-                            FROM Transacciones AS ta
-                            WHERE ta.codigoUsuarioRevendedor IS NULL
-                        );
+                        SELECT
+                            bo.codigo,
+                            bo.numeroSerie,
+                            bo.fila, 
+                            bo.asiento,
+                            bo.precio,
+                            bo.codigoEvento
+                        FROM Boletos AS bo
+                        WHERE bo.codigoEvento = ? AND EXISTS(
+                        	SELECT 1 FROM Transacciones AS ta
+                            LEFT JOIN Reservas AS re ON ta.codigo = re.codigoTransaccion
+                            WHERE ta.codigoBoleto = bo.codigo AND ta.codigoUsuarioRevendedor IS NULL
+                            AND ta.codigoUsuarioComprador IS NULL AND (re.fechaHoraLimite IS NULL OR re.fechaHoraLimite <= NOW())
+                        ) ORDER BY bo.fila ASC, bo.asiento ASC;
         """;
 
         List<Boleto> listaBoletos = new LinkedList<>();
@@ -119,16 +196,17 @@ public class BoletosDAO {
             Connection conexion = this.manejadorConexiones.crearConexion();
             PreparedStatement comando = conexion.prepareStatement(codigoSQL);
             comando.setInt(1, codigoEventoP);
-            ResultSet resultadosConsultaEventos = comando.executeQuery();
+            ResultSet resultadosConsultaBoletos = comando.executeQuery();
             
-            while(resultadosConsultaEventos.next()){ 
-                String codigo = resultadosConsultaEventos.getString("bo_ven.codigo");
-                String numeroSerie = resultadosConsultaEventos.getString("bo_ven.numeroSerie");
-                String fila = resultadosConsultaEventos.getString("bo_ven.fila");
-                Integer asiento = resultadosConsultaEventos.getInt("bo_ven.asiento");
-                Integer codigoEvento = resultadosConsultaEventos.getInt("bo_ven.codigoEvento");
+            while(resultadosConsultaBoletos.next()){ 
+                Integer codigo = resultadosConsultaBoletos.getInt("codigo");
+                String numeroSerie = resultadosConsultaBoletos.getString("numeroSerie");
+                String fila = resultadosConsultaBoletos.getString("fila");
+                Integer asiento = resultadosConsultaBoletos.getInt("asiento");
+                Double precio = resultadosConsultaBoletos.getDouble("precio");
+                Integer codigoEvento = resultadosConsultaBoletos.getInt("codigoEvento");
                 
-                Boleto boleto = new Boleto(codigo, numeroSerie, fila, asiento, codigoEvento);
+                Boleto boleto = new Boleto(codigo, numeroSerie, fila, asiento, precio, codigoEvento);
                 listaBoletos.add(boleto);
             }
 

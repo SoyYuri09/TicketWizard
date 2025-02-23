@@ -1,6 +1,8 @@
 
 package itson.ticketwizard.entidades;
 
+import java.util.Objects;
+
 /**
  * @author García López, Yuri Germán - ID: 00000252583
  * @author Mendoza Baypoli, Vladimir Iván - ID: 00000252758
@@ -15,10 +17,10 @@ public class Usuario {
     private String correoElectronico;
     private String fechaNacimiento;
     private String contrasenia;
-    private Integer saldo;
+    private Double saldo;
     private Integer codigoDireccion;
 
-    public Usuario(Integer codigo, String nombres, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String fechaNacimiento, String contrasenia, Integer saldo, Integer codigoDireccion) {
+    public Usuario(Integer codigo, String nombres, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String fechaNacimiento, String contrasenia, Double saldo, Integer codigoDireccion) {
         this.codigo = codigo;
         this.nombres = nombres;
         this.apellidoPaterno = apellidoPaterno;
@@ -86,11 +88,11 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
-    public Integer getSaldo() {
+    public Double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(Integer saldo) {
+    public void setSaldo(Double saldo) {
         this.saldo = saldo;
     }
 
@@ -101,6 +103,37 @@ public class Usuario {
     public void setCodigoDireccion(Integer codigoDireccion) {
         this.codigoDireccion = codigoDireccion;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 79 * hash + Objects.hashCode(this.codigo);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        return Objects.equals(this.codigo, other.codigo);
+    }
+
+    
+    
+    @Override
+    public String toString() {
+        return "Usuario{" + "codigo=" + codigo + ", nombres=" + nombres + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", correoElectronico=" + correoElectronico + ", fechaNacimiento=" + fechaNacimiento + ", contrasenia=" + contrasenia + ", saldo=" + saldo + ", codigoDireccion=" + codigoDireccion + '}';
+    }
+
+    
 
     
     

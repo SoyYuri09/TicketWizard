@@ -6,7 +6,7 @@ package itson.ticketwizard.dtos;
  * @author Romo López, Manuel - ID: 00000253080
  */
 
-public class DatosEventoDTO {
+public class EventoMostrarListaDTO {
     private String nombre;
     private String recinto;
     private String descripcion;
@@ -14,7 +14,7 @@ public class DatosEventoDTO {
     private String estado;
     private String ciudad;
 
-    public DatosEventoDTO(String nombre, String recinto, String descripcion, String fecha, String estado, String ciudad) {
+    public EventoMostrarListaDTO(String nombre, String recinto, String descripcion, String fecha, String estado, String ciudad) {
         this.nombre = nombre;
         this.recinto = recinto;
         this.descripcion = descripcion;

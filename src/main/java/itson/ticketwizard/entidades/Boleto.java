@@ -10,25 +10,27 @@ import java.util.Objects;
 
 public class Boleto {
     
-    private String codigo;
+    private Integer codigo;
     private String numeroSerie;
     private String fila;
-    private int asiento;
-    private int codigoEvento;
+    private Integer asiento;
+    private Double precio;
+    private Integer codigoEvento;
 
-    public Boleto(String codigo, String numeroSerie, String fila, int asiento, int codigoEvento) {
+    public Boleto(Integer codigo, String numeroSerie, String fila, Integer asiento, Double precio, Integer codigoEvento) {
         this.codigo = codigo;
         this.numeroSerie = numeroSerie;
         this.fila = fila;
         this.asiento = asiento;
+        this.precio = precio;
         this.codigoEvento = codigoEvento;
     }
 
-    public String getCodigo() {
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -48,26 +50,34 @@ public class Boleto {
         this.fila = fila;
     }
 
-    public int getAsiento() {
+    public Integer getAsiento() {
         return asiento;
     }
 
-    public void setAsiento(int asiento) {
+    public void setAsiento(Integer asiento) {
         this.asiento = asiento;
     }
 
-    public int getCodigoEvento() {
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    public Integer getCodigoEvento() {
         return codigoEvento;
     }
 
-    public void setCodigoEvento(int codigoEvento) {
+    public void setCodigoEvento(Integer codigoEvento) {
         this.codigoEvento = codigoEvento;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 89 * hash + Objects.hashCode(this.codigo);
+        hash = 61 * hash + Objects.hashCode(this.codigo);
         return hash;
     }
 
@@ -86,10 +96,12 @@ public class Boleto {
         return Objects.equals(this.codigo, other.codigo);
     }
 
-    @Override
-    public String toString() {
-        return "Boleto{" + "codigo=" + codigo + ", numeroSerie=" + numeroSerie + ", fila=" + fila + ", asiento=" + asiento + ", codigoEvento=" + codigoEvento + '}';
-    }
+ 
+    
+    
+    
+
+
     
     
     

@@ -56,6 +56,54 @@ public class UsuariosDAO {
         
     }
     
+    public Usuario obtenerUsuario(String correoElectronico){
+        String codigoSQL = """
+                           SELECT 
+                                codigo,
+                                nombres,
+                                apellidoPaterno,
+                                apellidoMaterno,
+                                contrasenia,
+                                correoElectronico,
+                                fechaNacimiento,
+                                saldo,
+                                codigoDireccion
+                           FROM Usuarios
+                           WHERE correoElectronico = ?;
+                           """;
+        
+        Usuario usuario = null;
+        try(
+            Connection conexion = manejadorConexiones.crearConexion();
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+
+        ){
+            comando.setString(1, correoElectronico);
+            try(
+                ResultSet resultados = comando.executeQuery();
+            ){
+                while(resultados.next()){
+                    Integer codigo = resultados.getInt("codigo");
+                    String nombres = resultados.getString("nombres");
+                    String apellidoPaterno = resultados.getString("apellidoPaterno");
+                    String apellidoMaterno = resultados.getString("apellidoMaterno");
+                    String contrasenia = resultados.getString("correoElectronico");
+                    String fechaNacimiento = resultados.getString("fechaNacimiento");
+                    Double saldo = resultados.getDouble("saldo");
+                    Integer codigoDireccion = resultados.getInt("codigoDireccion");
+                    
+                    usuario = new Usuario(codigo, nombres, apellidoPaterno, apellidoMaterno, correoElectronico, fechaNacimiento, contrasenia, saldo, codigoDireccion);
+                }
+            }
+  
+        } catch (SQLException e){
+            System.out.println(e.getErrorCode());
+        }
+
+        return usuario;
+        
+    }
+    
     public Usuario registrar(NuevoUsuarioDTO nuevoUsuarioDTO){
         String codigoSQLInsercion = """
                            INSERT INTO Usuarios (
@@ -101,12 +149,11 @@ public class UsuariosDAO {
                 usuario = new Usuario(codigo, nuevoUsuarioDTO.getNombres(),
                         nuevoUsuarioDTO.getApellidoPaterno(), nuevoUsuarioDTO.getApellidoMaterno(),
                         nuevoUsuarioDTO.getContrasenia(), nuevoUsuarioDTO.getCorreoElectronico(),
-                        nuevoUsuarioDTO.getFechaNacimiento(), 0, nuevoUsuarioDTO.getCodigoDireccion());
+                        nuevoUsuarioDTO.getFechaNacimiento(), 0d, nuevoUsuarioDTO.getCodigoDireccion());
             }
   
         } catch (SQLException e){
             System.err.println(e.getMessage());
-            System.out.println(e.getErrorCode());
         }
         return usuario;
     }
@@ -146,5 +193,106 @@ public class UsuariosDAO {
 
         return usuarioValido;
         
+    }
+    
+    public String obtenerNombres(String correoElectronico){
+        String codigoSQL = """
+                           SELECT nombres
+                           FROM Usuarios
+                           WHERE correoElectronico = ?
+                           """;
+        
+        String nombres = null;
+        try(
+            Connection conexion = manejadorConexiones.crearConexion();
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+
+        ){
+            comando.setString(1, correoElectronico);
+            
+            try(
+                ResultSet resultados = comando.executeQuery();
+            ){
+                while(resultados.next()){
+                
+                    if(resultados.getString("nombres") != null){
+                        nombres = resultados.getString("nombres");
+                    }             
+                }
+            }
+  
+        } catch (SQLException e){
+            System.err.println(e.getMessage());
+            System.out.println(e.getErrorCode());
+        }
+
+        return nombres;
+        
+    } 
+    
+    public String obtenerApellidoPaterno(String correoElectronico){
+        String codigoSQL = """
+                           SELECT apellidoPaterno
+                           FROM Usuarios
+                           WHERE correoElectronico = ?
+                           """;
+        
+        String apellidoPaterno = null;
+        try(
+            Connection conexion = manejadorConexiones.crearConexion();
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+
+        ){
+            comando.setString(1, correoElectronico);
+            
+            try(
+                ResultSet resultados = comando.executeQuery();
+            ){
+                while(resultados.next()){
+                    if(resultados.getString("apellidoPaterno") != null){
+                        apellidoPaterno = resultados.getString("apellidoPaterno");
+                    }             
+                }
+            }
+  
+        } catch (SQLException e){
+            System.err.println(e.getMessage());
+            System.out.println(e.getErrorCode());
+        }
+
+        return apellidoPaterno;
+    }
+    
+    public String obtenerApellidoMaterno(String correoElectronico){
+        String codigoSQL = """
+                           SELECT apellidoMaterno
+                           FROM Usuarios
+                           WHERE correoElectronico = ?
+                           """;
+        
+        String apellidoMaterno = null;
+        try(
+            Connection conexion = manejadorConexiones.crearConexion();
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+
+        ){
+            comando.setString(1, correoElectronico);
+            
+            try(
+                ResultSet resultados = comando.executeQuery();
+            ){
+                while(resultados.next()){
+                    if(resultados.getString("apellidoMaterno") != null){
+                        apellidoMaterno = resultados.getString("apellidoMaterno");
+                    }             
+                }
+            }
+  
+        } catch (SQLException e){
+            System.err.println(e.getMessage());
+            System.out.println(e.getErrorCode());
+        }
+
+        return apellidoMaterno;
     }
 }

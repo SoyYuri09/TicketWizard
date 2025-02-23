@@ -15,8 +15,9 @@ public class Evento {
     private String fecha;
     private String estado;
     private String ciudad;
+    private String direccionBanner;
 
-    public Evento(int codigo, String nombre, String recinto, String descripcion, String fecha, String estado, String ciudad) {
+    public Evento(int codigo, String nombre, String recinto, String descripcion, String fecha, String estado, String ciudad, String direccionBanner) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.recinto = recinto;
@@ -24,6 +25,7 @@ public class Evento {
         this.fecha = fecha;
         this.estado = estado;
         this.ciudad = ciudad;
+        this.direccionBanner = direccionBanner;
     }
 
     public int getCodigo() {
@@ -82,32 +84,20 @@ public class Evento {
         this.ciudad = ciudad;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + this.codigo;
-        return hash;
+    public String getDireccionBanner() {
+        return direccionBanner;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Evento other = (Evento) obj;
-        return this.codigo == other.codigo;
+    public void setDireccionBanner(String direccionBanner) {
+        this.direccionBanner = direccionBanner;
     }
 
     @Override
     public String toString() {
-        return "Evento{" + "codigo=" + codigo + ", nombre=" + nombre + ", recinto=" + recinto + ", descripcion=" + descripcion + ", fecha=" + fecha + ", estado=" + estado + ", ciudad=" + ciudad + '}';
+        return "Evento{" + "codigo=" + codigo + ", nombre=" + nombre + ", recinto=" + recinto + ", descripcion=" + descripcion + ", fecha=" + fecha + ", estado=" + estado + ", ciudad=" + ciudad + ", direccionBanner=" + direccionBanner + '}';
     }
+
+    
 
     
 }

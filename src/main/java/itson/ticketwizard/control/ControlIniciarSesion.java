@@ -2,15 +2,19 @@
 package itson.ticketwizard.control;
 
 import itson.ticketwizard.dtos.IngresoUsuarioDTO;
+import itson.ticketwizard.dtos.NombreCorreoUsuarioDTO;
 import itson.ticketwizard.dtos.NuevaDireccionUsuarioDTO;
 import itson.ticketwizard.dtos.NuevoUsuarioDTO;
 import itson.ticketwizard.dtos.SolicitudRegistroUsuarioDTO;
+import itson.ticketwizard.dtos.UsuarioEventoElegidoDTO;
 import itson.ticketwizard.entidades.DireccionUsuario;
 import itson.ticketwizard.entidades.Usuario;
 import itson.ticketwizard.persistencia.BoletosDAO;
 import itson.ticketwizard.persistencia.DireccionesUsuariosDAO;
 import itson.ticketwizard.persistencia.EventosDAO;
 import itson.ticketwizard.persistencia.ManejadorConexiones;
+import itson.ticketwizard.persistencia.ReservasDAO;
+import itson.ticketwizard.persistencia.TransaccionesDAO;
 import itson.ticketwizard.persistencia.UsuariosDAO;
 import itson.ticketwizard.presentacion.IngresoDatosInicioSesion;
 import itson.ticketwizard.presentacion.InicioSesionUsuario;
@@ -57,17 +61,27 @@ public class ControlIniciarSesion {
     }
     
     public void inciarSesion(IngresoUsuarioDTO ingresoUsuarioDTO){
-        if(usuariosDAO.validarUsuarioContrasenia(ingresoUsuarioDTO) == true)
-            this.terminarInicioSesion();
+        if(usuariosDAO.validarUsuarioContrasenia(ingresoUsuarioDTO) == true){
+            String correoElectronico = ingresoUsuarioDTO.getCorreoElectronico();
+            String nombreUsuario = usuariosDAO.obtenerNombres(correoElectronico);
+            String apellidoPaternoUsuario = usuariosDAO.obtenerApellidoPaterno(correoElectronico);
+            String apellidoMaternoUsuario = usuariosDAO.obtenerApellidoMaterno(correoElectronico);
+
+            NombreCorreoUsuarioDTO nombreCorreoUsuarioDTO = new NombreCorreoUsuarioDTO(nombreUsuario, apellidoPaternoUsuario, apellidoMaternoUsuario, correoElectronico);
+            this.terminarInicioSesion(nombreCorreoUsuarioDTO);
+        }
         else{
             formIngresoDatosInicioSesion.mostrarMensajeUsuarioContraseniaInvalido("Usuario y/o contraseña incorrectos", "Datos erróneos", 1);
         }
     }
   
-    public void terminarInicioSesion(){
+    public void terminarInicioSesion(NombreCorreoUsuarioDTO nombreCorreoUsuarioDTO){
         EventosDAO eventosDAO = new EventosDAO(new ManejadorConexiones());
         BoletosDAO boletosDAO = new BoletosDAO(new ManejadorConexiones());
-        ControlCompra controlCompra = new ControlCompra(eventosDAO, boletosDAO);
+        UsuariosDAO usuariosDAO = new UsuariosDAO(new ManejadorConexiones());
+        TransaccionesDAO transaccionesDAO = new TransaccionesDAO(new ManejadorConexiones());
+        ReservasDAO reservasDAO = new ReservasDAO(new ManejadorConexiones());
+        ControlCompra controlCompra = new ControlCompra(eventosDAO, boletosDAO, usuariosDAO, transaccionesDAO, nombreCorreoUsuarioDTO, reservasDAO);
         controlCompra.iniciarCompra(formIngresoDatosInicioSesion);
     }
     
