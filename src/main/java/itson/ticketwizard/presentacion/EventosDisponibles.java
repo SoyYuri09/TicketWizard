@@ -313,12 +313,12 @@ public class EventosDisponibles extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         etqNombreUsuario = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        opcionPerfil = new javax.swing.JMenuItem();
+        opcMisBoletos = new javax.swing.JMenuItem();
+        opcioCargarSaldo = new javax.swing.JMenuItem();
+        opcionConsultarMovimientos = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        opcionCerrarSesion = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
         scrollEventos.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -459,26 +459,31 @@ public class EventosDisponibles extends javax.swing.JFrame {
         jMenu1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoPerfil.png"))); // NOI18N
-        jMenuItem2.setText("Mi perfil");
-        jMenu1.add(jMenuItem2);
+        opcionPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoPerfil.png"))); // NOI18N
+        opcionPerfil.setText("Mi perfil");
+        jMenu1.add(opcionPerfil);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTickets.png"))); // NOI18N
-        jMenuItem3.setText("Mis boletos");
-        jMenu1.add(jMenuItem3);
+        opcMisBoletos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTickets.png"))); // NOI18N
+        opcMisBoletos.setText("Mis boletos");
+        jMenu1.add(opcMisBoletos);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCartera.png"))); // NOI18N
-        jMenuItem4.setText("Cargar saldo");
-        jMenu1.add(jMenuItem4);
+        opcioCargarSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCartera.png"))); // NOI18N
+        opcioCargarSaldo.setText("Cargar saldo");
+        opcioCargarSaldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcioCargarSaldoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(opcioCargarSaldo);
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoMovimientos.png"))); // NOI18N
-        jMenuItem5.setText("Consultar movimientos");
-        jMenu1.add(jMenuItem5);
+        opcionConsultarMovimientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoMovimientos.png"))); // NOI18N
+        opcionConsultarMovimientos.setText("Consultar movimientos");
+        jMenu1.add(opcionConsultarMovimientos);
         jMenu1.add(jSeparator1);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCerrarSesion.png"))); // NOI18N
-        jMenuItem6.setText("Cerrar sesión");
-        jMenu1.add(jMenuItem6);
+        opcionCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCerrarSesion.png"))); // NOI18N
+        opcionCerrarSesion.setText("Cerrar sesión");
+        jMenu1.add(opcionCerrarSesion);
 
         menuUsuario.add(jMenu1);
 
@@ -507,6 +512,10 @@ public class EventosDisponibles extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void opcioCargarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcioCargarSaldoActionPerformed
+        this.control.cambiarCargaSaldo(this);
+    }//GEN-LAST:event_opcioCargarSaldoActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -522,13 +531,13 @@ public class EventosDisponibles extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu32;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenuBar menuUsuario;
+    private javax.swing.JMenuItem opcMisBoletos;
+    private javax.swing.JMenuItem opcioCargarSaldo;
+    private javax.swing.JMenuItem opcionCerrarSesion;
+    private javax.swing.JMenuItem opcionConsultarMovimientos;
+    private javax.swing.JMenuItem opcionPerfil;
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JPanel panelGeneral;
     private javax.swing.JScrollPane scrollEventos;

@@ -14,6 +14,7 @@ import itson.ticketwizard.entidades.Transaccion;
 import itson.ticketwizard.entidades.Usuario;
 import itson.ticketwizard.persistencia.BoletosDAO;
 import itson.ticketwizard.persistencia.EventosDAO;
+import itson.ticketwizard.persistencia.ManejadorConexiones;
 import itson.ticketwizard.persistencia.ReservasDAO;
 import itson.ticketwizard.persistencia.TransaccionesDAO;
 import itson.ticketwizard.persistencia.UsuariosDAO;
@@ -41,6 +42,7 @@ public class ControlCompra {
     private CompraExitosa compraExitosa;
     private CompraSaldoInsuficiente compraSaldoInsuficiente;
     private CargarSaldo cargarSaldo;
+    
     
     private UsuariosDAO usuariosDAO;
     private EventosDAO eventosDAO;
@@ -116,8 +118,7 @@ public class ControlCompra {
     
     public UsuarioSaldoDTO obtenerUsuarioSaldoDTO(String correoElectronico){
         Usuario usuario = usuariosDAO.obtenerUsuario(correoElectronico);
-        return new UsuarioSaldoDTO(usuario.getCodigo(), usuario.getSaldo());
-        
+        return new UsuarioSaldoDTO(usuario.getCodigo(), usuario.getSaldo()); 
     }
     
     public List<BoletoElegidoDTO> obtenerListaBoletosElegidoDTO(LinkedList<Integer> codigosBoletosSeleccionados){
@@ -183,9 +184,10 @@ public class ControlCompra {
         compraSaldoInsuficiente.setVisible(true);
     }
 
-    public void iniciarCargoSaldo(JFrame frameAnterior, Double saldo){
-        cargarSaldo = new CargarSaldo(this, saldo);
-        frameAnterior.dispose();
-        cargarSaldo.setVisible(true);
+    public void cambiarCargaSaldo(JFrame frameAnterior){
+        UsuariosDAO usuariosDAO = new UsuariosDAO(new ManejadorConexiones());
+        ControlCargarSaldo controlCargarSaldo = new ControlCargarSaldo(nombreCorreoUsuarioDTO, usuariosDAO);
+        controlCargarSaldo.iniciarCargaSaldo(frameAnterior);
     }
+    
 }
