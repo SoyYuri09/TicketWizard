@@ -3,7 +3,6 @@ package itson.ticketwizard.control;
 import itson.ticketwizard.dtos.BoletoElegidoDTO;
 import itson.ticketwizard.dtos.CompraReservaUsuarioTransaccionDTO;
 import itson.ticketwizard.dtos.EventoDisponibilidadBoletoDTO;
-import itson.ticketwizard.dtos.EventoMostrarListaDTO;
 import itson.ticketwizard.dtos.MontoTotalSaldoFinCompraDTO;
 import itson.ticketwizard.dtos.NombreCorreoUsuarioDTO;
 import itson.ticketwizard.dtos.UsuarioEventoElegidoDTO;
@@ -190,6 +189,14 @@ public class ControlCompra {
         TransaccionesDAO transaccionesDAO = new TransaccionesDAO(new ManejadorConexiones());
         ControlCargarSaldo controlCargarSaldo = new ControlCargarSaldo(nombreCorreoUsuarioDTO, usuariosDAO, reservasDAO, transaccionesDAO);
         controlCargarSaldo.iniciarCargaSaldo(frameAnterior);
+    }
+    
+    public void cambiarMMostrarBoletos(JFrame frameAnterior){
+//        UsuariosDAO usuariosDAO = new UsuariosDAO(new ManejadorConexiones());
+//        ReservasDAO reservasDAO = new ReservasDAO(new ManejadorConexiones());
+//        TransaccionesDAO transaccionesDAO = new TransaccionesDAO(new ManejadorConexiones());
+        ControlConsultarBoletos controlConsultarBoletos = new ControlConsultarBoletos(nombreCorreoUsuarioDTO);
+        controlConsultarBoletos.inicarMostrarBoletos(frameAnterior);
     }
     
 }

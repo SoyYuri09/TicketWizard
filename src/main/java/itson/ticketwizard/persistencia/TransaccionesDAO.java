@@ -2,15 +2,11 @@
 package itson.ticketwizard.persistencia;
 
 import itson.ticketwizard.dtos.CompraReservaUsuarioTransaccionDTO;
-import itson.ticketwizard.entidades.Boleto;
 import itson.ticketwizard.entidades.Transaccion;
-import itson.ticketwizard.entidades.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
 
 
 public class TransaccionesDAO {
@@ -41,7 +37,6 @@ public class TransaccionesDAO {
                             	WHERE re.codigoTransaccion = ta.codigo
                             	AND (re.fechaHoraLimite IS NULL OR re.fechaHoraLimite <= NOW())));
                         """;
-
         Transaccion transaccion = null;
         try {
             Connection conexion = this.manejadorConexiones.crearConexion();
@@ -73,7 +68,6 @@ public class TransaccionesDAO {
         String codigoSQL = """
                             CALL actualizarCuentasTransaccion(?, ?);
                         """;
-
         try {
             Connection conexion = this.manejadorConexiones.crearConexion();
             PreparedStatement comando = conexion.prepareStatement(codigoSQL);

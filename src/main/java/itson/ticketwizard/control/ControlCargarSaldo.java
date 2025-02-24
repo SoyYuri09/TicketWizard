@@ -15,8 +15,6 @@ import itson.ticketwizard.presentacion.CargaSaldoCompraExitosa;
 import itson.ticketwizard.presentacion.ComprasRealizadas;
 import itson.ticketwizard.persistencia.ReservasDAO;
 import itson.ticketwizard.persistencia.TransaccionesDAO;
-import static java.awt.SystemColor.control;
-import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JFrame;
 
@@ -60,6 +58,13 @@ public class ControlCargarSaldo {
     public void mostrarComprasRealizadas(JFrame frameAnterior){
         List<TransaccionApartadaDTO> listaTransaccionApartadaDTOs = obtenerTransaccionApartadaDTOs(obtenerNombreCorreoUsuarioDTO().getCorreoElectronico());
         if(listaTransaccionApartadaDTOs.size() > 0){
+            for(TransaccionApartadaDTO transaccionApartadaDTO: listaTransaccionApartadaDTOs){
+                Usuario usuario = usuariosDAO.obtenerUsuario(this.obtenerNombreCorreoUsuarioDTO().getCorreoElectronico());
+                CompraReservaUsuarioTransaccionDTO compraReservaUsuarioTransaccionDTO = 
+                        new CompraReservaUsuarioTransaccionDTO(usuario.getCodigo(),transaccionApartadaDTO.getCodigoTransaccion());
+                transaccionesDAO.concretarTransaccion(compraReservaUsuarioTransaccionDTO);
+            }
+            
             comprasRealizadas = new ComprasRealizadas(this, listaTransaccionApartadaDTOs);
             frameAnterior.dispose();
             comprasRealizadas.setVisible(true);

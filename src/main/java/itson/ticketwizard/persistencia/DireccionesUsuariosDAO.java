@@ -65,7 +65,6 @@ public class DireccionesUsuariosDAO {
             
         } catch (SQLException e){
             System.err.println(e.getMessage());
-            System.out.println(e.getErrorCode());
         }
 
         return direccionUsuario;

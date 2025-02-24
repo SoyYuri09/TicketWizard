@@ -277,7 +277,7 @@ public class CargarSaldo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        
+        this.control.mostrarCompra(this);
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnCargarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarSaldoActionPerformed
@@ -289,8 +289,8 @@ public class CargarSaldo extends javax.swing.JFrame {
             if(respuesta == 0){
                 this.control.actualizarSaldoUsuario(correoElectronico, saldoCargar);
                 this.control.mostrarComprasRealizadas(this);
-                System.out.println("Prueba2");
-            } 
+                
+            }
         } catch(NumberFormatException ex){
             JOptionPane.showMessageDialog(this, "Solo se permite ingresar una cantidad válida de saldo", "Saldo inválido", JOptionPane.INFORMATION_MESSAGE);
         }

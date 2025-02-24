@@ -1,5 +1,6 @@
 package itson.ticketwizard.presentacion;
 
+import itson.ticketwizard.control.ControlConsultarBoletos;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -10,14 +11,30 @@ import java.awt.Toolkit;
  */
 public class ConsultaBoletos extends javax.swing.JFrame {
 
-    public ConsultaBoletos() {
+    private ControlConsultarBoletos control;
+    
+    public ConsultaBoletos(ControlConsultarBoletos control) {
         initComponents();
+        
         setIconImage(iconoPropio);
         setResizable(false);
         setLocationRelativeTo(null);
         setTitle("Consulta de boletos");
+        this.control = control;
+        this.etqNombreUsuario.setText(control.obtenerNombreCorreoUsuarioDTO().getNombres() + " " 
+                + control.obtenerNombreCorreoUsuarioDTO().getApellidoPaterno() + " "
+                + control.obtenerNombreCorreoUsuarioDTO().getApellidoMaterno().substring(0,1) + ".");
+//        this.cargarBoletos();
     }
-
+//    
+//    private void cargarBoletos(){
+//        
+//        
+//        
+//        
+//        
+//    }
+//
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -38,7 +55,7 @@ public class ConsultaBoletos extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu32 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        etqNombreUsuario = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -164,15 +181,15 @@ public class ConsultaBoletos extends javax.swing.JFrame {
         jMenu2.setVerifyInputWhenFocusTarget(false);
         menuUsuario.add(jMenu2);
 
-        jMenu5.setText("Nombre de usuario");
-        jMenu5.setBackground(new java.awt.Color(90, 137, 255));
-        jMenu5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jMenu5.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jMenu5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jMenu5.setMaximumSize(new java.awt.Dimension(320, 32767));
-        jMenu5.setVerifyInputWhenFocusTarget(false);
-        menuUsuario.add(jMenu5);
+        etqNombreUsuario.setText("Nombre de usuario");
+        etqNombreUsuario.setBackground(new java.awt.Color(90, 137, 255));
+        etqNombreUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        etqNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        etqNombreUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        etqNombreUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        etqNombreUsuario.setMaximumSize(new java.awt.Dimension(320, 32767));
+        etqNombreUsuario.setVerifyInputWhenFocusTarget(false);
+        menuUsuario.add(etqNombreUsuario);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoUsuario.png"))); // NOI18N
         jMenu1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -243,7 +260,7 @@ public class ConsultaBoletos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        //Metodo para volver a la pantalla de disponiilidad de boletos
+        
     }//GEN-LAST:event_btnVolverActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -255,12 +272,12 @@ public class ConsultaBoletos extends javax.swing.JFrame {
     private javax.swing.JLabel etqConsultarBoletos;
     private javax.swing.JLabel etqFechaFinal3;
     private javax.swing.JLabel etqFechaInicial3;
+    private javax.swing.JMenu etqNombreUsuario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu32;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

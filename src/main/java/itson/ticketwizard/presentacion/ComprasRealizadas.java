@@ -1,25 +1,19 @@
 package itson.ticketwizard.presentacion;
 
 import itson.ticketwizard.control.ControlCargarSaldo;
-import itson.ticketwizard.control.ControlCompra;
+
 import itson.ticketwizard.dtos.TransaccionApartadaDTO;
 
-import itson.ticketwizard.entidades.Evento;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -49,8 +43,7 @@ public class ComprasRealizadas extends javax.swing.JFrame {
 
     private void llenarTablaCompras(){
         
-        if(listaTransaccionApartadaDTOs.size() == 0){
-            this.dispose();
+        if(listaTransaccionApartadaDTOs.isEmpty()){
             this.control.mostrarCompra(this);
         } else {
 
@@ -58,9 +51,10 @@ public class ComprasRealizadas extends javax.swing.JFrame {
 
             scrollPaneCompras.setBounds(0,0,panelGeneral.getWidth(), panelGeneral.getHeight());
             panelGeneral.add(scrollPaneCompras);
+            panelGeneral.setBackground(Color.red);
 
             JPanel panelScroll = new JPanel();
-            panelScroll.setBounds(20, 0, scrollPaneCompras.getWidth()- 10, scrollPaneCompras.getHeight());
+            panelScroll.setBounds(20, 0, scrollPaneCompras.getWidth(), scrollPaneCompras.getHeight());
             panelScroll.setLayout(new BoxLayout(panelScroll, BoxLayout.Y_AXIS));
 
             scrollPaneCompras.setViewportView(panelScroll);
@@ -94,7 +88,7 @@ public class ComprasRealizadas extends javax.swing.JFrame {
                 panelInformacionReservas.setLayout(new BoxLayout(panelInformacionReservas, BoxLayout.Y_AXIS));
                 panelInformacionReservas.setBounds(500,10,panelCompra.getWidth()/2, panelCompra.getHeight());
 
-                //Nombre
+                //Código de transacción
                 JLabel etqCodigoTransaccion = new JLabel(String.valueOf(transaccionApartadaDTO.getCodigoTransaccion()));
                 etqCodigoTransaccion.setForeground(Color.white);
                 Font fuenteTransaccion = new Font("Segoe UI", Font.BOLD, 24);
@@ -106,6 +100,7 @@ public class ComprasRealizadas extends javax.swing.JFrame {
                 panelSeparador1.setBackground(Color.BLACK);
                 panelInformacionReservas.add(panelSeparador1);
 
+                
                 //Numero boleto
                 JLabel etqNumeroBoleto = new JLabel(String.valueOf(transaccionApartadaDTO.getCodigoBoleto()));
                 etqNumeroBoleto.setForeground(Color.white);
@@ -174,7 +169,7 @@ public class ComprasRealizadas extends javax.swing.JFrame {
                 panelInformacionReservas.add(panelSeparador2);
 
                 //Codigo usuario comprador
-                String adquisicion = "";
+                String adquisicion = null;
                 if(transaccionApartadaDTO.getCodigoUsuarioRevendedor() == null){
                     adquisicion = "De boletera";
                 } else {
@@ -250,18 +245,15 @@ public class ComprasRealizadas extends javax.swing.JFrame {
                 JLabel etqImagenEvento = new JLabel(imagenIconoReducido);
 
 
-                if(listaTransaccionApartadaDTOs.indexOf(transaccionApartadaDTO) % 2 == 0){
-                    panelCompra.add(panelInformacionReservas);
-                    panelCompra.add(etqImagenEvento);
-                } else{
-                    panelCompra.add(etqImagenEvento);
-                    panelCompra.add(panelInformacionReservas);
+                panelCompra.add(etqImagenEvento);
+                panelCompra.add(panelInformacionReservas);
+                panelCompra.setBackground(Color.red);
+                panelInformacionReservas.setBackground(Color.BLUE);
+                panelScroll.setBackground(Color.GREEN);
+                scrollPaneCompras.setBackground(Color.PINK);
 
 
-
-                }
-
-               //Se agrega el código del evento actual a la lista codigosEventos. 
+                //Se agrega el código del evento actual a la lista codigosEventos. 
                 Integer codigoTransaccion = transaccionApartadaDTO.getCodigoTransaccion();
                 codigoTransacciones[listaTransaccionApartadaDTOs.indexOf(transaccionApartadaDTO)] = codigoTransaccion;
             }
@@ -326,6 +318,7 @@ public class ComprasRealizadas extends javax.swing.JFrame {
         setTitle("TicketWizard");
 
         panelGeneral.setBackground(new java.awt.Color(255, 255, 255));
+        panelGeneral.setOpaque(false);
 
         javax.swing.GroupLayout panelGeneralLayout = new javax.swing.GroupLayout(panelGeneral);
         panelGeneral.setLayout(panelGeneralLayout);
@@ -387,9 +380,9 @@ public class ComprasRealizadas extends javax.swing.JFrame {
                 .addGap(6, 6, 6))
         );
 
+        btnAceptar.setText("Aceptar");
         btnAceptar.setBackground(new java.awt.Color(192, 223, 255));
         btnAceptar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
@@ -483,10 +476,10 @@ public class ComprasRealizadas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(504, 504, 504)
+                .addGap(509, 509, 509)
                 .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -496,9 +489,9 @@ public class ComprasRealizadas extends javax.swing.JFrame {
                 .addComponent(panelEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAceptar)
-                .addGap(16, 16, 16))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();

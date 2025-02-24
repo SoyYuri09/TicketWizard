@@ -62,6 +62,7 @@ itson\ticketwizard\persistencia\TransaccionesDAO.class
 itson\ticketwizard\presentacion\ConsultaMovimientos$5.class
 itson\ticketwizard\persistencia\ManejadorConexiones.class
 itson\ticketwizard\presentacion\CompraSaldoInsuficiente.class
+itson\ticketwizard\util\SeguridadUtil.class
 itson\ticketwizard\presentacion\DisponibilidadBoletos$4.class
 itson\ticketwizard\presentacion\IngresoDatosInicioSesion$1.class
 itson\ticketwizard\presentacion\CargarSaldo$3.class
@@ -87,6 +88,7 @@ itson\ticketwizard\presentacion\EventosDisponibles$2.class
 itson\ticketwizard\presentacion\ComprasRealizadas.class
 itson\ticketwizard\presentacion\DisponibilidadBoletos.class
 itson\ticketwizard\presentacion\ConsultaBoletos$1.class
+itson\ticketwizard\control\ControlConsultarBoletos.class
 itson\ticketwizard\presentacion\BuscarRangoFechasError$1.class
 itson\ticketwizard\presentacion\IngresoDatosInicioSesion.class
 itson\ticketwizard\presentacion\ReventaBoleto$2.class

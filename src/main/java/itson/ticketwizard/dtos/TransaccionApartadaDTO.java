@@ -17,7 +17,8 @@ public class TransaccionApartadaDTO {
     private String direccionBanner;
     private Integer codigoUsuarioComprador;
 
-    public TransaccionApartadaDTO(Integer codigoBoleto, Integer codigoTransaccion, String fechaHora, Integer codigoUsuarioRevendedor, Double precioVenta, String nombre, String recinto, String fechaEvento, String estado, String ciudad, String direccionBanner, Integer codigoUsuarioComprador) {
+    public TransaccionApartadaDTO(Integer codigoBoleto, Integer codigoTransaccion, String fechaHora, Integer codigoUsuarioRevendedor, Double precioVenta, String nombre, String recinto, 
+            String fechaEvento, String estado, String ciudad, String direccionBanner, Integer codigoUsuarioComprador) {
         this.codigoBoleto = codigoBoleto;
         this.codigoTransaccion = codigoTransaccion;
         this.fechaHora = fechaHora;

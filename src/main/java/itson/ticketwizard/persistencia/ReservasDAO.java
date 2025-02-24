@@ -71,7 +71,7 @@ public class ReservasDAO {
     public List<TransaccionApartadaDTO> obtenerResevasValidas(String correoElectronico){
         String codigoSQL = """
                             SELECT 
-                            	ta.codigoBoleto,
+                            	ta.codigo,
                                 bo.codigo,
                                 ta.fechaHora,
                                 ta.codigoUsuarioRevendedor,
@@ -99,22 +99,22 @@ public class ReservasDAO {
             comando.setString(1, correoElectronico);
             ResultSet resultadosConsultaReservas = comando.executeQuery();
             while(resultadosConsultaReservas.next()){
-                Integer codigoBoleto = resultadosConsultaReservas.getInt("codigoBoleto");
-                Integer codigoTransaccion = resultadosConsultaReservas.getInt("codigo");
-                String fechaHora = resultadosConsultaReservas.getString("fechaHora");
-                Integer codigoUsuarioRevendedor = resultadosConsultaReservas.getInt("codigoUsuarioRevendedor");
-                Double precioVenta = resultadosConsultaReservas.getDouble("precioVenta");
-                String nombre = resultadosConsultaReservas.getString("nombre");
-                String recinto = resultadosConsultaReservas.getString("recinto");
-                String fechaEvento = resultadosConsultaReservas.getString("fecha");
-                String estado = resultadosConsultaReservas.getString("estado");
-                String ciudad = resultadosConsultaReservas.getString("ciudad");
-                String direccionBanner = resultadosConsultaReservas.getString("direccionBanner");
-                Integer codigoUsuarioComprador = resultadosConsultaReservas.getInt("codigoUsuarioComprador");
-                
+                Integer codigoBoleto = resultadosConsultaReservas.getInt("bo.codigo");
+                Integer codigoTransaccion = resultadosConsultaReservas.getInt("ta.codigo");
+                String fechaHora = resultadosConsultaReservas.getString("ta.fechaHora");
+                Integer codigoUsuarioRevendedor = resultadosConsultaReservas.getInt("ta.codigoUsuarioRevendedor");
+                Double precioVenta = resultadosConsultaReservas.getDouble("ta.precioVenta");
+                String nombre = resultadosConsultaReservas.getString("ev.nombre");
+                String recinto = resultadosConsultaReservas.getString("ev.recinto");
+                String fechaEvento = resultadosConsultaReservas.getString("ev.fecha");
+                String estado = resultadosConsultaReservas.getString("ev.estado");
+                String ciudad = resultadosConsultaReservas.getString("ev.ciudad");
+                String direccionBanner = resultadosConsultaReservas.getString("ev.direccionBanner");
+                Integer codigoUsuarioComprador = resultadosConsultaReservas.getInt("ta.codigoUsuarioComprador");
+
                 TransaccionApartadaDTO transaccionApartadaDTO = new TransaccionApartadaDTO(codigoBoleto, codigoTransaccion, fechaHora, codigoUsuarioRevendedor,
                         precioVenta, nombre, recinto, fechaEvento, estado, ciudad, direccionBanner, codigoUsuarioComprador);
-                
+
                 listaTransaccionApartadaDTO.add(transaccionApartadaDTO);
             }
             

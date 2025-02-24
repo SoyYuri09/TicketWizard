@@ -1,8 +1,11 @@
 
 package itson.ticketwizard.presentacion;
 
+import com.github.lgooddatepicker.components.DatePicker;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 import itson.ticketwizard.control.ControlIniciarSesion;
 import itson.ticketwizard.dtos.SolicitudRegistroUsuarioDTO;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +21,13 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
     
     public IngresoDatosRegistro(ControlIniciarSesion control) {
         initComponents();
+        
+        DatePickerSettings ajustesDatePicker = new DatePickerSettings();
+        this.datePickerFechaNacimiento.setSettings(ajustesDatePicker);
+        LocalDate fechaMinimaNacimiento = LocalDate.of(1900, 1, 1);
+        LocalDate fechaMaximaNacimiento = LocalDate.now();
+        ajustesDatePicker.setDateRangeLimits(fechaMinimaNacimiento, fechaMaximaNacimiento);
+        
         this.control = control;
     }
 
@@ -295,13 +305,18 @@ public class IngresoDatosRegistro extends javax.swing.JFrame {
 
     private void jButtonGuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarDatosActionPerformed
         
-        //Pendiente validaciones.
         String nombres = this.textFieldNombre.getText();
         String apellidoPaterno = this.textFieldApellidoPaterno.getText();
         String apellidoMaterno = this.textFieldApellidoMaterno.getText();
         String correoElectronico = this.textFieldCorreoElectronico.getText();
         String fechaNacimiento = this.datePickerFechaNacimiento.getDateStringOrEmptyString();
         char[] contrasenia = this.jPasswordContrasenia.getPassword();
+        
+        if((nombres == "") || (apellidoPaterno == "") || (apellidoMaterno == "") || (correoElectronico == "")){
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "Datos inválidos", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+       
         
         String contraseniaString = "";
         for(char c: contrasenia){

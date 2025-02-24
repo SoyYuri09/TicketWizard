@@ -50,7 +50,6 @@ public class UsuariosDAO {
   
         } catch (SQLException e){
             System.err.println(e.getMessage());
-            System.out.println(e.getErrorCode());
         }
         System.out.println(usuarioExiste);
         return usuarioExiste;

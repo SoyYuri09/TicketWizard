@@ -153,7 +153,7 @@ public class CompraExitosa extends javax.swing.JFrame {
         jLabel7.setText("Saldo actual:");
 
         etqSaldo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        etqSaldo.setText(String.format("%.2f", this.saldo));
+        etqSaldo.setText(String.format("%.2f", this.saldo - this.precioVenta));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Pesos");
