@@ -6,6 +6,7 @@ C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticke
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\dtos\UsuarioSaldoDTO.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\entidades\Usuario.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\persistencia\DireccionesUsuariosDAO.java
+C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\ConsultaBoletosEventoSeleccionado.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\DisponibilidadBoletos.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\dtos\NuevoUsuarioDTO.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\ConsultaBoletos.java
@@ -26,6 +27,7 @@ C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticke
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\ConsultaMovimientos.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\InicioSesionUsuario.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\BuscarRangoFechasError.java
+C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\ComprasRealizadas.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\dtos\NuevaDireccionUsuarioDTO.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\CargarSaldo.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\dtos\EventoMostrarListaDTO.java
@@ -33,12 +35,12 @@ C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticke
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\ConsultaSinMovimientos.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\dtos\NombreCorreoUsuarioDTO.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\EventosDisponibles.java
-C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\CompraBoletosCargaSaldo.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\dtos\MontoTotalSaldoFinCompraDTO.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\ReventaExitosa.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\persistencia\ManejadorConexiones.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\persistencia\ReservasDAO.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\entidades\Evento.java
+C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\dtos\TransaccionApartadaDTO.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\entidades\DireccionUsuario.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\Ticketwizard.java
 C:\Users\Usuario\Documents\GitHub\BaseDeDatosAvanzadas\src\main\java\itson\ticketwizard\presentacion\ReventaBoleto.java

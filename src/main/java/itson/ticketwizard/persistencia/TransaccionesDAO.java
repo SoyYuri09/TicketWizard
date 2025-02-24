@@ -4,6 +4,7 @@ package itson.ticketwizard.persistencia;
 import itson.ticketwizard.dtos.CompraReservaUsuarioTransaccionDTO;
 import itson.ticketwizard.entidades.Boleto;
 import itson.ticketwizard.entidades.Transaccion;
+import itson.ticketwizard.entidades.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -86,4 +87,52 @@ public class TransaccionesDAO {
         }
 
     }
+    
+    public Transaccion obtenerTransaccion(Integer codigoTransaccion){
+        String codigoSQL = """
+                           SELECT 
+                                codigo,
+                                fechaLimite,
+                                fechaHora,
+                                numeroSerieBoleto,
+                                precioVenta,
+                                codigoBoleto,
+                                codigoUsuarioRevendedor,
+                                codigoUsuarioComprador,
+                           FROM Transacciones
+                           WHERE codigo = ?;
+                           """;
+        
+        Transaccion transaccion = null;
+        try(
+            Connection conexion = manejadorConexiones.crearConexion();
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+
+        ){
+            comando.setInt(1, codigoTransaccion);
+            try(
+                ResultSet resultados = comando.executeQuery();
+            ){
+                while(resultados.next()){
+                    Integer codigo = resultados.getInt("codigo");
+                    String fechaLimite = resultados.getString("fechaLimite");
+                    String fechaHora = resultados.getString("fechaHora");
+                    String numeroSerieBoleto = resultados.getString("numeroSerieBoleto");
+                    Double precioVenta = resultados.getDouble("precioVenta");
+                    Integer codigoBoleto = resultados.getInt("codigoBoleto");
+                    Integer codigoUsuarioRevendedor = resultados.getInt("codigoUsuarioRevendedor");
+                    Integer codigoUsuarioComprador = resultados.getInt("codigoUsuarioComprador");
+                    
+                    transaccion = new Transaccion(codigo, fechaLimite, fechaHora, numeroSerieBoleto, codigoBoleto, codigoUsuarioRevendedor, codigoUsuarioComprador, precioVenta);
+                }
+            }
+  
+        } catch (SQLException e){
+            System.out.println(e.getErrorCode());
+        }
+
+        return transaccion;
+        
+    }
+    
 }

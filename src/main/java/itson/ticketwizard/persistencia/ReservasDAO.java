@@ -1,12 +1,15 @@
-
 package itson.ticketwizard.persistencia;
 
 import itson.ticketwizard.dtos.CompraReservaUsuarioTransaccionDTO;
+import itson.ticketwizard.dtos.TransaccionApartadaDTO;
+import itson.ticketwizard.entidades.Evento;
 import itson.ticketwizard.entidades.Reserva;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class ReservasDAO {
@@ -63,6 +66,63 @@ public class ReservasDAO {
             System.err.println(e.getMessage());
         }
         return reserva;
+    }
+
+    public List<TransaccionApartadaDTO> obtenerResevasValidas(String correoElectronico){
+        String codigoSQL = """
+                            SELECT 
+                            	ta.codigoBoleto,
+                                bo.codigo,
+                                ta.fechaHora,
+                                ta.codigoUsuarioRevendedor,
+                                ta.precioVenta,
+                                ev.nombre,
+                                ev.recinto,
+                                ev.fecha,
+                                ev.estado,
+                                ev.ciudad,
+                                ev.direccionBanner,
+                                ta.codigoUsuarioComprador
+                            FROM Usuarios AS us
+                            INNER JOIN Reservas AS re ON us.codigo = re.codigoUsuario
+                            INNER JOIN Transacciones AS ta ON ta.codigo = re.codigoTransaccion
+                            INNER JOIN Boletos AS bo ON bo.codigo = ta.codigoBoleto
+                            INNER JOIN Eventos AS ev ON ev.codigo = bo.codigoEvento
+                            WHERE us.correoElectronico = ? AND fechaHoraLimite > NOW();
+        """;
+
+        List<TransaccionApartadaDTO> listaTransaccionApartadaDTO = new LinkedList<>();
+        try {
+            
+            Connection conexion = this.manejadorConexiones.crearConexion();
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            comando.setString(1, correoElectronico);
+            ResultSet resultadosConsultaReservas = comando.executeQuery();
+            while(resultadosConsultaReservas.next()){
+                Integer codigoBoleto = resultadosConsultaReservas.getInt("codigoBoleto");
+                Integer codigoTransaccion = resultadosConsultaReservas.getInt("codigo");
+                String fechaHora = resultadosConsultaReservas.getString("fechaHora");
+                Integer codigoUsuarioRevendedor = resultadosConsultaReservas.getInt("codigoUsuarioRevendedor");
+                Double precioVenta = resultadosConsultaReservas.getDouble("precioVenta");
+                String nombre = resultadosConsultaReservas.getString("nombre");
+                String recinto = resultadosConsultaReservas.getString("recinto");
+                String fechaEvento = resultadosConsultaReservas.getString("fecha");
+                String estado = resultadosConsultaReservas.getString("estado");
+                String ciudad = resultadosConsultaReservas.getString("ciudad");
+                String direccionBanner = resultadosConsultaReservas.getString("direccionBanner");
+                Integer codigoUsuarioComprador = resultadosConsultaReservas.getInt("codigoUsuarioComprador");
+                
+                TransaccionApartadaDTO transaccionApartadaDTO = new TransaccionApartadaDTO(codigoBoleto, codigoTransaccion, fechaHora, codigoUsuarioRevendedor,
+                        precioVenta, nombre, recinto, fechaEvento, estado, ciudad, direccionBanner, codigoUsuarioComprador);
+                
+                listaTransaccionApartadaDTO.add(transaccionApartadaDTO);
+            }
+            
+            
+        } catch(SQLException ex){
+            System.out.println("Error al desplegar los eventos: " + ex.getMessage());
+        }
+        return listaTransaccionApartadaDTO;
     }
     
 }

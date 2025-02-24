@@ -1,6 +1,8 @@
 package itson.ticketwizard.presentacion;
 
+import itson.ticketwizard.control.ControlCargarSaldo;
 import itson.ticketwizard.control.ControlCompra;
+import itson.ticketwizard.dtos.UsuarioSaldoDTO;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -9,6 +11,7 @@ import java.awt.Image;
 import java.awt.LayoutManager;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  * @author García López, Yuri Germán - ID: 00000252583
@@ -17,16 +20,27 @@ import javax.swing.JPanel;
  */
 public class CargarSaldo extends javax.swing.JFrame {
 
-    private final ControlCompra control;
+    private final ControlCargarSaldo control;
+    private String correoElectronico;
+    private Double saldo;
     
-    public CargarSaldo(ControlCompra control) {
+    public CargarSaldo(ControlCargarSaldo control) {
+        this.control = control;
+        this.cargarDatos();
         initComponents();
         setIconImage(iconoPropio);
         setResizable(false);
         setLocationRelativeTo(null);
         setTitle("Cargar saldo");
-        this.control = control;
     }
+    
+    private void cargarDatos(){
+        String correoElectronico = this.control.obtenerNombreCorreoUsuarioDTO().getCorreoElectronico();
+        this.correoElectronico = correoElectronico;
+        UsuarioSaldoDTO usuarioSaldoDTO = this.control.obtenerUsuarioSaldoDTO(correoElectronico);
+        this.saldo = usuarioSaldoDTO.getSaldo();
+    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -60,10 +74,10 @@ public class CargarSaldo extends javax.swing.JFrame {
 
         etqLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoTicketwizard.png"))); // NOI18N
 
-        etqTitulo.setText("Ticketwizard");
         etqTitulo.setBackground(new java.awt.Color(255, 255, 255));
         etqTitulo.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
         etqTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        etqTitulo.setText("Ticketwizard");
 
         etqNombreUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         etqNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,29 +127,29 @@ public class CargarSaldo extends javax.swing.JFrame {
 
         pnlCargarSaldo.setBackground(null);
 
-        etqSaldoActual.setText("Saldo actual:");
         etqSaldoActual.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        etqSaldoActual.setText("Saldo actual:");
 
-        etqSaldoActualBD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etqSaldoActualBD.setText("$Saldo");
         etqSaldoActualBD.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        etqSaldoActualBD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etqSaldoActualBD.setText(String.format("%.2f", this.saldo));
 
-        etqPesosSaldoCargar.setText("Pesos");
         etqPesosSaldoCargar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        etqPesosSaldoCargar.setText("Pesos");
 
-        etqMXNSaldoActual.setText("MXN");
         etqMXNSaldoActual.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        etqMXNSaldoActual.setText("MXN");
 
-        etqSaldoCargar.setText("Saldo a cargar:");
         etqSaldoCargar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        etqSaldoCargar.setText("Saldo a cargar:");
 
         campoSaldoCargar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        etqPesosSaldoActual1.setText("Pesos");
         etqPesosSaldoActual1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        etqPesosSaldoActual1.setText("Pesos");
 
-        etqMXNSaldoCargar.setText("MXN");
         etqMXNSaldoCargar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        etqMXNSaldoCargar.setText("MXN");
 
         javax.swing.GroupLayout pnlCargarSaldoLayout = new javax.swing.GroupLayout(pnlCargarSaldo);
         pnlCargarSaldo.setLayout(pnlCargarSaldoLayout);
@@ -180,21 +194,21 @@ public class CargarSaldo extends javax.swing.JFrame {
                 .addContainerGap(64, Short.MAX_VALUE))
         );
 
-        etqCargarSaldo.setText("Carga de saldo");
         etqCargarSaldo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        etqCargarSaldo.setText("Carga de saldo");
 
-        btnVolver.setText("Volver");
         btnVolver.setBackground(new java.awt.Color(192, 223, 255));
         btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
 
-        btnCargarSaldo.setText("Cargar");
         btnCargarSaldo.setBackground(new java.awt.Color(193, 224, 255));
         btnCargarSaldo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCargarSaldo.setText("Cargar");
         btnCargarSaldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCargarSaldoActionPerformed(evt);
@@ -263,11 +277,23 @@ public class CargarSaldo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        //Metodo para volver a la pantalla de disponiilidad de boletos
+        
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnCargarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarSaldoActionPerformed
-        //Metodo para continuar a la pantalla de compra exitosa o de saldo insuficiente
+        try{
+            
+            Double saldoCargar = Double.parseDouble(campoSaldoCargar.getText());
+            int respuesta = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea agregar " 
+                    + String.format("%.2f", saldoCargar) + " pesos MXN a su saldo?",  "Confirmación", JOptionPane.YES_NO_OPTION);
+            if(respuesta == 0){
+                this.control.actualizarSaldoUsuario(correoElectronico, saldoCargar);
+                this.control.mostrarComprasRealizadas(this);
+                System.out.println("Prueba2");
+            } 
+        } catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "Solo se permite ingresar una cantidad válida de saldo", "Saldo inválido", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnCargarSaldoActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed

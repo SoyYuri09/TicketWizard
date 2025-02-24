@@ -3,6 +3,7 @@ package itson.ticketwizard.persistencia;
 
 import itson.ticketwizard.dtos.IngresoUsuarioDTO;
 import itson.ticketwizard.dtos.NuevoUsuarioDTO;
+import itson.ticketwizard.entidades.Transaccion;
 import itson.ticketwizard.entidades.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -326,4 +327,28 @@ public class UsuariosDAO {
 
         return saldo;
     }
+    
+    public void actualizarSaldo(Double saldo, String correoElectronico){
+        String codigoSQL = """
+                            UPDATE 
+                                Usuarios 
+                            SET saldo = ? + saldo 
+                            WHERE correoElectronico = ?;
+                            """;
+        System.out.println("Prueba");
+        try(
+            Connection conexion = manejadorConexiones.crearConexion();
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            
+        ){
+            comando.setDouble(1, saldo);
+            comando.setString(2, correoElectronico);
+            int numeroFilasActualizadas = comando.executeUpdate();
+  
+        } catch (SQLException e){
+            System.out.println(e.getErrorCode());
+        }
+
+    }
+    
 }

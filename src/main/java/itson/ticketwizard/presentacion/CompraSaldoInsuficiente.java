@@ -1,6 +1,7 @@
 package itson.ticketwizard.presentacion;
 
 import itson.ticketwizard.control.ControlCompra;
+import itson.ticketwizard.dtos.MontoTotalSaldoFinCompraDTO;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -18,8 +19,12 @@ import javax.swing.JPanel;
 public class CompraSaldoInsuficiente extends javax.swing.JFrame {
 
     private final ControlCompra control;
+    private final Double saldo;
+    private final Double precioVenta;
     
-    public CompraSaldoInsuficiente(ControlCompra control) {
+    public CompraSaldoInsuficiente(ControlCompra control, MontoTotalSaldoFinCompraDTO montoTotalSaldoFinCompraDTO) {
+        this.saldo = montoTotalSaldoFinCompraDTO.getSaldo();
+        this.precioVenta = montoTotalSaldoFinCompraDTO.getPrecioVenta();
         initComponents();
         setIconImage(iconoPropio);
         setResizable(false);
@@ -128,7 +133,7 @@ public class CompraSaldoInsuficiente extends javax.swing.JFrame {
         etqSaldoActual.setText("Saldo actual:");
 
         etqSaldo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        etqSaldo.setText("$Saldo");
+        etqSaldo.setText(String.format("%.2f", this.saldo));
 
         etqPesosSaldoActual.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqPesosSaldoActual.setText("Pesos");
@@ -140,7 +145,7 @@ public class CompraSaldoInsuficiente extends javax.swing.JFrame {
         etqTotalCompra.setText("Total de compra:");
 
         etqTotalCompraBD.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        etqTotalCompraBD.setText("$Total");
+        etqTotalCompraBD.setText(String.format("%.2f", this.precioVenta));
 
         etqPesosTotalCompra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqPesosTotalCompra.setText("Pesos");
@@ -152,7 +157,7 @@ public class CompraSaldoInsuficiente extends javax.swing.JFrame {
         etqSaldoFaltante.setText("Saldo faltante:");
 
         etqSaldoFaltanteBD.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        etqSaldoFaltanteBD.setText("$Faltante");
+        etqSaldoFaltanteBD.setText(String.format("%.2f", this.precioVenta - this.saldo));
 
         etqPesosSaldoFaltante.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etqPesosSaldoFaltante.setText("Pesos");
@@ -310,11 +315,11 @@ public class CompraSaldoInsuficiente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverInicioActionPerformed
-        //Metodo para volver a la pantalla de disponiilidad de boletos
+        this.control.iniciarCompra(this);
     }//GEN-LAST:event_btnVolverInicioActionPerformed
 
     private void btnCargarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarSaldoActionPerformed
-        //Metodo para continuar a la pantalla de compra exitosa o de saldo insuficiente
+        this.control.cambiarCargaSaldo(this);
     }//GEN-LAST:event_btnCargarSaldoActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed

@@ -1,5 +1,6 @@
 package itson.ticketwizard.presentacion;
 
+import itson.ticketwizard.control.ControlCargarSaldo;
 import itson.ticketwizard.control.ControlCompra;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,15 +18,24 @@ import javax.swing.JPanel;
  */
 public class CargaSaldoCompraExitosa extends javax.swing.JFrame {
     
-    private final ControlCompra control;
+    private final ControlCargarSaldo control;
+    private final Double saldo;
+    private final Double precioVenta;
 
-    public CargaSaldoCompraExitosa(ControlCompra control) {
+    public CargaSaldoCompraExitosa(ControlCargarSaldo control, Double saldo, Double precioVenta) {
+        this.saldo = saldo;
+        this.precioVenta = precioVenta;
         initComponents();
         setIconImage(iconoPropio);
         setResizable(false);
         setLocationRelativeTo(null);
         setTitle("Cargo de saldo y compra exitosos");
         this.control = control;
+    }
+    
+    private void cargarDatos(){
+        String correoElectronico = control.obtenerNombreCorreoUsuarioDTO().getCorreoElectronico();
+        this.control.obtenerUsuarioSaldoDTO(correoElectronico);
     }
 
     @SuppressWarnings("unchecked")

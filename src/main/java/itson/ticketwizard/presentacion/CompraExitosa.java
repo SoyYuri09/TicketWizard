@@ -1,6 +1,7 @@
 package itson.ticketwizard.presentacion;
 
 import itson.ticketwizard.control.ControlCompra;
+import itson.ticketwizard.dtos.MontoTotalSaldoFinCompraDTO;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -18,14 +19,24 @@ import javax.swing.JPanel;
 public class CompraExitosa extends javax.swing.JFrame {
 
     private final ControlCompra control;
+    private final Double saldo;
+    private final Double precioVenta;
     
-    public CompraExitosa(ControlCompra control) {
+    public CompraExitosa(ControlCompra control, MontoTotalSaldoFinCompraDTO montoTotalSaldoFinCompraDTO) {
+        this.saldo = montoTotalSaldoFinCompraDTO.getSaldo();
+        this.precioVenta = montoTotalSaldoFinCompraDTO.getPrecioVenta();
         initComponents();
         setIconImage(iconoPropio);
         setResizable(false);
         setLocationRelativeTo(null);
         setTitle("Compra exitosa");
         this.control = control;
+        this.cargarDatos();
+    }
+    
+    private void cargarDatos(){
+        String correoElectronico = control.obtenerNombreCorreoUsuarioDTO().getCorreoElectronico();
+        this.control.obtenerUsuarioSaldoDTO(correoElectronico);
     }
 
     @SuppressWarnings("unchecked")
@@ -43,16 +54,15 @@ public class CompraExitosa extends javax.swing.JFrame {
         jPanel1 = new RoundedPanel(50, new Color(255,255,255));
         etqDescripcion1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        etqPrecioVenta = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        etqSaldo = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         btnVolverInicio = new javax.swing.JButton();
-        btnCargarSaldo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,8 +137,8 @@ public class CompraExitosa extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Se descontaron:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("$Dinero");
+        etqPrecioVenta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        etqPrecioVenta.setText(String.format("%.2f", this.precioVenta));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Pesos");
@@ -142,8 +152,8 @@ public class CompraExitosa extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Saldo actual:");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("$Saldo");
+        etqSaldo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        etqSaldo.setText(String.format("%.2f", this.saldo));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Pesos");
@@ -161,7 +171,7 @@ public class CompraExitosa extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel3)
+                        .addComponent(etqPrecioVenta)
                         .addGap(34, 34, 34)
                         .addComponent(jLabel4)
                         .addGap(21, 21, 21)
@@ -171,7 +181,7 @@ public class CompraExitosa extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
+                                .addComponent(etqSaldo)
                                 .addGap(42, 42, 42)
                                 .addComponent(jLabel9)
                                 .addGap(21, 21, 21)
@@ -189,14 +199,14 @@ public class CompraExitosa extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3)
+                    .addComponent(etqPrecioVenta)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel8)
+                    .addComponent(etqSaldo)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
                 .addGap(53, 53, 53)
@@ -210,15 +220,6 @@ public class CompraExitosa extends javax.swing.JFrame {
         btnVolverInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverInicioActionPerformed(evt);
-            }
-        });
-
-        btnCargarSaldo.setBackground(new java.awt.Color(193, 224, 255));
-        btnCargarSaldo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCargarSaldo.setText("Comprar otro boleto");
-        btnCargarSaldo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCargarSaldoActionPerformed(evt);
             }
         });
 
@@ -238,11 +239,9 @@ public class CompraExitosa extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1))
                     .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                        .addGap(209, 209, 209)
-                        .addComponent(btnVolverInicio)
-                        .addGap(80, 80, 80)
-                        .addComponent(btnCargarSaldo)))
-                .addContainerGap(130, Short.MAX_VALUE))
+                        .addGap(321, 321, 321)
+                        .addComponent(btnVolverInicio)))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,11 +257,9 @@ public class CompraExitosa extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVolverInicio)
-                    .addComponent(btnCargarSaldo))
-                .addGap(0, 36, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(btnVolverInicio)
+                .addGap(0, 44, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -280,35 +277,30 @@ public class CompraExitosa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverInicioActionPerformed
-        //Metodo para volver a la pantalla de disponiilidad de boletos
+        this.control.iniciarCompra(this);
     }//GEN-LAST:event_btnVolverInicioActionPerformed
-
-    private void btnCargarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarSaldoActionPerformed
-        //Metodo para continuar a la pantalla de compra exitosa o de saldo insuficiente
-    }//GEN-LAST:event_btnCargarSaldoActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCargarSaldo;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JButton btnVolverInicio;
     private javax.swing.JLabel etqDescripcion1;
     private javax.swing.JLabel etqLogo;
     private javax.swing.JLabel etqNombreUsuario;
+    private javax.swing.JLabel etqPrecioVenta;
+    private javax.swing.JLabel etqSaldo;
     private javax.swing.JLabel etqSaldoInsuficiente;
     private javax.swing.JLabel etqTitulo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelEncabezado;

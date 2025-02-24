@@ -186,7 +186,9 @@ public class ControlCompra {
 
     public void cambiarCargaSaldo(JFrame frameAnterior){
         UsuariosDAO usuariosDAO = new UsuariosDAO(new ManejadorConexiones());
-        ControlCargarSaldo controlCargarSaldo = new ControlCargarSaldo(nombreCorreoUsuarioDTO, usuariosDAO);
+        ReservasDAO reservasDAO = new ReservasDAO(new ManejadorConexiones());
+        TransaccionesDAO transaccionesDAO = new TransaccionesDAO(new ManejadorConexiones());
+        ControlCargarSaldo controlCargarSaldo = new ControlCargarSaldo(nombreCorreoUsuarioDTO, usuariosDAO, reservasDAO, transaccionesDAO);
         controlCargarSaldo.iniciarCargaSaldo(frameAnterior);
     }
     
